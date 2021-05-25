@@ -1,0 +1,2 @@
+%define MEMORY_START 0x3f7fffe
+%define STACK_START MEMORY_START

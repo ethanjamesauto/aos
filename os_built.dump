@@ -1,0 +1,1674 @@
+
+os_built.o:     file format pei-i386
+
+
+Disassembly of section .text:
+
+00007e00 <kernel_entry>:
+    7e00:	bd fe ff f7 03       	mov    ebp,0x3f7fffe
+    7e05:	89 ec                	mov    esp,ebp
+    7e07:	c7 05 fe ff f7 03 02 	mov    DWORD PTR ds:0x3f7fffe,0x3f80002
+    7e0e:	00 f8 03 
+    7e11:	e8 02 00 00 00       	call   7e18 <start>
+    7e16:	eb fe                	jmp    7e16 <kernel_entry+0x16>
+
+00007e18 <start>:
+    7e18:	f3 0f 1e fb          	endbr32 
+    7e1c:	81 ec 3c 01 00 00    	sub    esp,0x13c
+    7e22:	83 ec 0c             	sub    esp,0xc
+    7e25:	8d 84 24 24 01 00 00 	lea    eax,[esp+0x124]
+    7e2c:	50                   	push   eax
+    7e2d:	e8 86 09 00 00       	call   87b8 <_ZN6WriterC1Ev>
+    7e32:	83 c4 10             	add    esp,0x10
+    7e35:	83 ec 0c             	sub    esp,0xc
+    7e38:	8d 44 24 18          	lea    eax,[esp+0x18]
+    7e3c:	50                   	push   eax
+    7e3d:	e8 3c 0e 00 00       	call   8c7e <_ZN10KeyManagerC1Ev>
+    7e42:	83 c4 10             	add    esp,0x10
+    7e45:	83 ec 0c             	sub    esp,0xc
+    7e48:	8d 84 24 24 01 00 00 	lea    eax,[esp+0x124]
+    7e4f:	50                   	push   eax
+    7e50:	e8 df 02 00 00       	call   8134 <_Z12test_routineR6Writer>
+    7e55:	83 c4 10             	add    esp,0x10
+    7e58:	83 ec 0c             	sub    esp,0xc
+    7e5b:	8d 84 24 24 01 00 00 	lea    eax,[esp+0x124]
+    7e62:	50                   	push   eax
+    7e63:	e8 a8 01 00 00       	call   8010 <_Z8new_lineR6Writer>
+    7e68:	83 c4 10             	add    esp,0x10
+    7e6b:	83 ec 0c             	sub    esp,0xc
+    7e6e:	68 e8 03 00 00       	push   0x3e8
+    7e73:	e8 5e 07 00 00       	call   85d6 <_Z5alloci>
+    7e78:	83 c4 10             	add    esp,0x10
+    7e7b:	89 84 24 28 01 00 00 	mov    DWORD PTR [esp+0x128],eax
+    7e82:	c7 84 24 2c 01 00 00 	mov    DWORD PTR [esp+0x12c],0x0
+    7e89:	00 00 00 00 
+    7e8d:	83 ec 0c             	sub    esp,0xc
+    7e90:	8d 44 24 18          	lea    eax,[esp+0x18]
+    7e94:	50                   	push   eax
+    7e95:	e8 12 0e 00 00       	call   8cac <_ZN10KeyManager6updateEv>
+    7e9a:	83 c4 10             	add    esp,0x10
+    7e9d:	c6 84 24 27 01 00 00 	mov    BYTE PTR [esp+0x127],0x0
+    7ea4:	00 
+    7ea5:	83 ec 0c             	sub    esp,0xc
+    7ea8:	8d 44 24 18          	lea    eax,[esp+0x18]
+    7eac:	50                   	push   eax
+    7ead:	e8 a4 0e 00 00       	call   8d56 <_ZN10KeyManager11getKeyPressEv>
+    7eb2:	83 c4 10             	add    esp,0x10
+    7eb5:	88 84 24 27 01 00 00 	mov    BYTE PTR [esp+0x127],al
+    7ebc:	80 bc 24 27 01 00 00 	cmp    BYTE PTR [esp+0x127],0x0
+    7ec3:	00 
+    7ec4:	0f 95 c0             	setne  al
+    7ec7:	84 c0                	test   al,al
+    7ec9:	74 c2                	je     7e8d <start+0x75>
+    7ecb:	0f be 84 24 27 01 00 	movsx  eax,BYTE PTR [esp+0x127]
+    7ed2:	00 
+    7ed3:	83 f8 0a             	cmp    eax,0xa
+    7ed6:	0f 85 b3 00 00 00    	jne    7f8f <start+0x177>
+    7edc:	8b 94 24 2c 01 00 00 	mov    edx,DWORD PTR [esp+0x12c]
+    7ee3:	8b 84 24 28 01 00 00 	mov    eax,DWORD PTR [esp+0x128]
+    7eea:	01 d0                	add    eax,edx
+    7eec:	c6 00 00             	mov    BYTE PTR [eax],0x0
+    7eef:	c7 84 24 2c 01 00 00 	mov    DWORD PTR [esp+0x12c],0x0
+    7ef6:	00 00 00 00 
+    7efa:	83 ec 08             	sub    esp,0x8
+    7efd:	6a 0a                	push   0xa
+    7eff:	8d 84 24 24 01 00 00 	lea    eax,[esp+0x124]
+    7f06:	50                   	push   eax
+    7f07:	e8 f2 08 00 00       	call   87fe <_ZN6WriterlsEc>
+    7f0c:	83 c4 10             	add    esp,0x10
+    7f0f:	83 ec 08             	sub    esp,0x8
+    7f12:	8d 84 24 20 01 00 00 	lea    eax,[esp+0x120]
+    7f19:	50                   	push   eax
+    7f1a:	ff b4 24 34 01 00 00 	push   DWORD PTR [esp+0x134]
+    7f21:	e8 f4 11 00 00       	call   911a <_Z13parse_commandPcR6Writer>
+    7f26:	83 c4 10             	add    esp,0x10
+    7f29:	83 f0 01             	xor    eax,0x1
+    7f2c:	84 c0                	test   al,al
+    7f2e:	74 4a                	je     7f7a <start+0x162>
+    7f30:	83 ec 08             	sub    esp,0x8
+    7f33:	68 00 b0 00 00       	push   0xb000
+    7f38:	8d 84 24 24 01 00 00 	lea    eax,[esp+0x124]
+    7f3f:	50                   	push   eax
+    7f40:	e8 07 09 00 00       	call   884c <_ZN6WriterlsEPKc>
+    7f45:	83 c4 10             	add    esp,0x10
+    7f48:	83 ec 08             	sub    esp,0x8
+    7f4b:	ff b4 24 30 01 00 00 	push   DWORD PTR [esp+0x130]
+    7f52:	50                   	push   eax
+    7f53:	e8 d2 08 00 00       	call   882a <_ZN6WriterlsEPc>
+    7f58:	83 c4 10             	add    esp,0x10
+    7f5b:	83 ec 08             	sub    esp,0x8
+    7f5e:	68 0a b0 00 00       	push   0xb00a
+    7f63:	50                   	push   eax
+    7f64:	e8 e3 08 00 00       	call   884c <_ZN6WriterlsEPKc>
+    7f69:	83 c4 10             	add    esp,0x10
+    7f6c:	83 ec 08             	sub    esp,0x8
+    7f6f:	6a 0a                	push   0xa
+    7f71:	50                   	push   eax
+    7f72:	e8 87 08 00 00       	call   87fe <_ZN6WriterlsEc>
+    7f77:	83 c4 10             	add    esp,0x10
+    7f7a:	83 ec 0c             	sub    esp,0xc
+    7f7d:	8d 84 24 24 01 00 00 	lea    eax,[esp+0x124]
+    7f84:	50                   	push   eax
+    7f85:	e8 86 00 00 00       	call   8010 <_Z8new_lineR6Writer>
+    7f8a:	83 c4 10             	add    esp,0x10
+    7f8d:	eb 7c                	jmp    800b <start+0x1f3>
+    7f8f:	81 bc 24 2c 01 00 00 	cmp    DWORD PTR [esp+0x12c],0x3e7
+    7f96:	e7 03 00 00 
+    7f9a:	0f 8f 05 ff ff ff    	jg     7ea5 <start+0x8d>
+    7fa0:	80 bc 24 27 01 00 00 	cmp    BYTE PTR [esp+0x127],0x8
+    7fa7:	08 
+    7fa8:	75 1f                	jne    7fc9 <start+0x1b1>
+    7faa:	83 ac 24 2c 01 00 00 	sub    DWORD PTR [esp+0x12c],0x1
+    7fb1:	01 
+    7fb2:	83 bc 24 2c 01 00 00 	cmp    DWORD PTR [esp+0x12c],0x0
+    7fb9:	00 
+    7fba:	79 33                	jns    7fef <start+0x1d7>
+    7fbc:	c7 84 24 2c 01 00 00 	mov    DWORD PTR [esp+0x12c],0x0
+    7fc3:	00 00 00 00 
+    7fc7:	eb 26                	jmp    7fef <start+0x1d7>
+    7fc9:	8b 84 24 2c 01 00 00 	mov    eax,DWORD PTR [esp+0x12c]
+    7fd0:	8d 50 01             	lea    edx,[eax+0x1]
+    7fd3:	89 94 24 2c 01 00 00 	mov    DWORD PTR [esp+0x12c],edx
+    7fda:	89 c2                	mov    edx,eax
+    7fdc:	8b 84 24 28 01 00 00 	mov    eax,DWORD PTR [esp+0x128]
+    7fe3:	01 c2                	add    edx,eax
+    7fe5:	0f b6 84 24 27 01 00 	movzx  eax,BYTE PTR [esp+0x127]
+    7fec:	00 
+    7fed:	88 02                	mov    BYTE PTR [edx],al
+    7fef:	0f be 84 24 27 01 00 	movsx  eax,BYTE PTR [esp+0x127]
+    7ff6:	00 
+    7ff7:	83 ec 08             	sub    esp,0x8
+    7ffa:	50                   	push   eax
+    7ffb:	8d 84 24 24 01 00 00 	lea    eax,[esp+0x124]
+    8002:	50                   	push   eax
+    8003:	e8 f6 07 00 00       	call   87fe <_ZN6WriterlsEc>
+    8008:	83 c4 10             	add    esp,0x10
+    800b:	e9 95 fe ff ff       	jmp    7ea5 <start+0x8d>
+
+00008010 <_Z8new_lineR6Writer>:
+    8010:	f3 0f 1e fb          	endbr32 
+    8014:	83 ec 0c             	sub    esp,0xc
+    8017:	83 ec 08             	sub    esp,0x8
+    801a:	68 16 b0 00 00       	push   0xb016
+    801f:	ff 74 24 1c          	push   DWORD PTR [esp+0x1c]
+    8023:	e8 24 08 00 00       	call   884c <_ZN6WriterlsEPKc>
+    8028:	83 c4 10             	add    esp,0x10
+    802b:	90                   	nop
+    802c:	83 c4 0c             	add    esp,0xc
+    802f:	c3                   	ret    
+
+00008030 <_Z10print_cmosR6Writer>:
+    8030:	f3 0f 1e fb          	endbr32 
+    8034:	83 ec 1c             	sub    esp,0x1c
+    8037:	c7 44 24 0c 00 00 00 	mov    DWORD PTR [esp+0xc],0x0
+    803e:	00 
+    803f:	83 7c 24 0c 3e       	cmp    DWORD PTR [esp+0xc],0x3e
+    8044:	7f 71                	jg     80b7 <_Z10print_cmosR6Writer+0x87>
+    8046:	83 7c 24 0c 00       	cmp    DWORD PTR [esp+0xc],0x0
+    804b:	7e 1c                	jle    8069 <_Z10print_cmosR6Writer+0x39>
+    804d:	8b 44 24 0c          	mov    eax,DWORD PTR [esp+0xc]
+    8051:	83 e0 03             	and    eax,0x3
+    8054:	85 c0                	test   eax,eax
+    8056:	75 11                	jne    8069 <_Z10print_cmosR6Writer+0x39>
+    8058:	83 ec 08             	sub    esp,0x8
+    805b:	6a 0a                	push   0xa
+    805d:	ff 74 24 2c          	push   DWORD PTR [esp+0x2c]
+    8061:	e8 98 07 00 00       	call   87fe <_ZN6WriterlsEc>
+    8066:	83 c4 10             	add    esp,0x10
+    8069:	8b 44 24 0c          	mov    eax,DWORD PTR [esp+0xc]
+    806d:	0f be c0             	movsx  eax,al
+    8070:	83 ec 08             	sub    esp,0x8
+    8073:	50                   	push   eax
+    8074:	6a 70                	push   0x70
+    8076:	e8 e7 04 00 00       	call   8562 <port_byte_out>
+    807b:	83 c4 10             	add    esp,0x10
+    807e:	83 ec 0c             	sub    esp,0xc
+    8081:	6a 71                	push   0x71
+    8083:	e8 cb 04 00 00       	call   8553 <port_byte_in>
+    8088:	83 c4 10             	add    esp,0x10
+    808b:	0f b6 c0             	movzx  eax,al
+    808e:	6a 08                	push   0x8
+    8090:	6a 02                	push   0x2
+    8092:	50                   	push   eax
+    8093:	ff 74 24 2c          	push   DWORD PTR [esp+0x2c]
+    8097:	e8 9c 0a 00 00       	call   8b38 <_ZN6Writer12printIntBaseEiii>
+    809c:	83 c4 10             	add    esp,0x10
+    809f:	83 ec 08             	sub    esp,0x8
+    80a2:	6a 20                	push   0x20
+    80a4:	ff 74 24 2c          	push   DWORD PTR [esp+0x2c]
+    80a8:	e8 51 07 00 00       	call   87fe <_ZN6WriterlsEc>
+    80ad:	83 c4 10             	add    esp,0x10
+    80b0:	83 44 24 0c 01       	add    DWORD PTR [esp+0xc],0x1
+    80b5:	eb 88                	jmp    803f <_Z10print_cmosR6Writer+0xf>
+    80b7:	83 ec 0c             	sub    esp,0xc
+    80ba:	6a 60                	push   0x60
+    80bc:	e8 92 04 00 00       	call   8553 <port_byte_in>
+    80c1:	83 c4 10             	add    esp,0x10
+    80c4:	0f b6 c0             	movzx  eax,al
+    80c7:	6a 08                	push   0x8
+    80c9:	6a 02                	push   0x2
+    80cb:	50                   	push   eax
+    80cc:	ff 74 24 2c          	push   DWORD PTR [esp+0x2c]
+    80d0:	e8 63 0a 00 00       	call   8b38 <_ZN6Writer12printIntBaseEiii>
+    80d5:	83 c4 10             	add    esp,0x10
+    80d8:	83 ec 04             	sub    esp,0x4
+    80db:	6a 00                	push   0x0
+    80dd:	6a 00                	push   0x0
+    80df:	ff 74 24 2c          	push   DWORD PTR [esp+0x2c]
+    80e3:	e8 ec 07 00 00       	call   88d4 <_ZN6Writer6setPosEii>
+    80e8:	83 c4 10             	add    esp,0x10
+    80eb:	e9 47 ff ff ff       	jmp    8037 <_Z10print_cmosR6Writer+0x7>
+
+000080f0 <_Z3fibi>:
+    80f0:	f3 0f 1e fb          	endbr32 
+    80f4:	53                   	push   ebx
+    80f5:	83 ec 08             	sub    esp,0x8
+    80f8:	83 7c 24 10 01       	cmp    DWORD PTR [esp+0x10],0x1
+    80fd:	7f 06                	jg     8105 <_Z3fibi+0x15>
+    80ff:	8b 44 24 10          	mov    eax,DWORD PTR [esp+0x10]
+    8103:	eb 2a                	jmp    812f <_Z3fibi+0x3f>
+    8105:	8b 44 24 10          	mov    eax,DWORD PTR [esp+0x10]
+    8109:	83 e8 01             	sub    eax,0x1
+    810c:	83 ec 0c             	sub    esp,0xc
+    810f:	50                   	push   eax
+    8110:	e8 db ff ff ff       	call   80f0 <_Z3fibi>
+    8115:	83 c4 10             	add    esp,0x10
+    8118:	89 c3                	mov    ebx,eax
+    811a:	8b 44 24 10          	mov    eax,DWORD PTR [esp+0x10]
+    811e:	83 e8 02             	sub    eax,0x2
+    8121:	83 ec 0c             	sub    esp,0xc
+    8124:	50                   	push   eax
+    8125:	e8 c6 ff ff ff       	call   80f0 <_Z3fibi>
+    812a:	83 c4 10             	add    esp,0x10
+    812d:	01 d8                	add    eax,ebx
+    812f:	83 c4 08             	add    esp,0x8
+    8132:	5b                   	pop    ebx
+    8133:	c3                   	ret    
+
+00008134 <_Z12test_routineR6Writer>:
+    8134:	f3 0f 1e fb          	endbr32 
+    8138:	83 ec 0c             	sub    esp,0xc
+    813b:	83 ec 08             	sub    esp,0x8
+    813e:	6a 1f                	push   0x1f
+    8140:	ff 74 24 1c          	push   DWORD PTR [esp+0x1c]
+    8144:	e8 25 07 00 00       	call   886e <_ZN6Writer8setColorEc>
+    8149:	83 c4 10             	add    esp,0x10
+    814c:	83 ec 08             	sub    esp,0x8
+    814f:	68 19 b0 00 00       	push   0xb019
+    8154:	ff 74 24 1c          	push   DWORD PTR [esp+0x1c]
+    8158:	e8 bf 08 00 00       	call   8a1c <_ZN6Writer5printEPKc>
+    815d:	83 c4 10             	add    esp,0x10
+    8160:	83 ec 08             	sub    esp,0x8
+    8163:	6a 0f                	push   0xf
+    8165:	ff 74 24 1c          	push   DWORD PTR [esp+0x1c]
+    8169:	e8 00 07 00 00       	call   886e <_ZN6Writer8setColorEc>
+    816e:	83 c4 10             	add    esp,0x10
+    8171:	90                   	nop
+    8172:	83 c4 0c             	add    esp,0xc
+    8175:	c3                   	ret    
+
+00008176 <_Z15check_writeableR6Writer>:
+    8176:	f3 0f 1e fb          	endbr32 
+    817a:	83 ec 3c             	sub    esp,0x3c
+    817d:	83 ec 08             	sub    esp,0x8
+    8180:	68 2d b0 00 00       	push   0xb02d
+    8185:	ff 74 24 4c          	push   DWORD PTR [esp+0x4c]
+    8189:	e8 be 06 00 00       	call   884c <_ZN6WriterlsEPKc>
+    818e:	83 c4 10             	add    esp,0x10
+    8191:	83 ec 08             	sub    esp,0x8
+    8194:	6a 0a                	push   0xa
+    8196:	50                   	push   eax
+    8197:	e8 62 06 00 00       	call   87fe <_ZN6WriterlsEc>
+    819c:	83 c4 10             	add    esp,0x10
+    819f:	c7 44 24 2c 00 00 00 	mov    DWORD PTR [esp+0x2c],0x0
+    81a6:	00 
+    81a7:	c7 44 24 18 a0 8f 0b 	mov    DWORD PTR [esp+0x18],0xb8fa0
+    81ae:	00 
+    81af:	c7 44 24 1c 00 00 00 	mov    DWORD PTR [esp+0x1c],0x0
+    81b6:	00 
+    81b7:	c7 44 24 10 ff ff ff 	mov    DWORD PTR [esp+0x10],0xffffffff
+    81be:	ff 
+    81bf:	c7 44 24 14 00 00 00 	mov    DWORD PTR [esp+0x14],0x0
+    81c6:	00 
+    81c7:	66 c7 44 24 0d 79 00 	mov    WORD PTR [esp+0xd],0x79
+    81ce:	66 c7 44 24 0b 6e 00 	mov    WORD PTR [esp+0xb],0x6e
+    81d5:	8b 44 24 18          	mov    eax,DWORD PTR [esp+0x18]
+    81d9:	8b 54 24 1c          	mov    edx,DWORD PTR [esp+0x1c]
+    81dd:	89 44 24 20          	mov    DWORD PTR [esp+0x20],eax
+    81e1:	89 54 24 24          	mov    DWORD PTR [esp+0x24],edx
+    81e5:	8b 44 24 20          	mov    eax,DWORD PTR [esp+0x20]
+    81e9:	8b 54 24 24          	mov    edx,DWORD PTR [esp+0x24]
+    81ed:	8b 4c 24 14          	mov    ecx,DWORD PTR [esp+0x14]
+    81f1:	39 44 24 10          	cmp    DWORD PTR [esp+0x10],eax
+    81f5:	19 d1                	sbb    ecx,edx
+    81f7:	0f 8c a2 00 00 00    	jl     829f <_Z15check_writeableR6Writer+0x129>
+    81fd:	8b 44 24 20          	mov    eax,DWORD PTR [esp+0x20]
+    8201:	83 ec 0c             	sub    esp,0xc
+    8204:	50                   	push   eax
+    8205:	e8 8d 03 00 00       	call   8597 <memtest>
+    820a:	83 c4 10             	add    esp,0x10
+    820d:	85 c0                	test   eax,eax
+    820f:	0f 95 c0             	setne  al
+    8212:	88 44 24 0f          	mov    BYTE PTR [esp+0xf],al
+    8216:	0f b6 44 24 0f       	movzx  eax,BYTE PTR [esp+0xf]
+    821b:	39 44 24 2c          	cmp    DWORD PTR [esp+0x2c],eax
+    821f:	74 66                	je     8287 <_Z15check_writeableR6Writer+0x111>
+    8221:	80 7c 24 0f 00       	cmp    BYTE PTR [esp+0xf],0x0
+    8226:	74 28                	je     8250 <_Z15check_writeableR6Writer+0xda>
+    8228:	8b 44 24 20          	mov    eax,DWORD PTR [esp+0x20]
+    822c:	6a 02                	push   0x2
+    822e:	6a 10                	push   0x10
+    8230:	50                   	push   eax
+    8231:	ff 74 24 4c          	push   DWORD PTR [esp+0x4c]
+    8235:	e8 fe 08 00 00       	call   8b38 <_ZN6Writer12printIntBaseEiii>
+    823a:	83 c4 10             	add    esp,0x10
+    823d:	83 ec 08             	sub    esp,0x8
+    8240:	6a 2d                	push   0x2d
+    8242:	ff 74 24 4c          	push   DWORD PTR [esp+0x4c]
+    8246:	e8 3d 08 00 00       	call   8a88 <_ZN6Writer9printCharEc>
+    824b:	83 c4 10             	add    esp,0x10
+    824e:	eb 37                	jmp    8287 <_Z15check_writeableR6Writer+0x111>
+    8250:	8b 44 24 20          	mov    eax,DWORD PTR [esp+0x20]
+    8254:	6a 02                	push   0x2
+    8256:	6a 10                	push   0x10
+    8258:	50                   	push   eax
+    8259:	ff 74 24 4c          	push   DWORD PTR [esp+0x4c]
+    825d:	e8 d6 08 00 00       	call   8b38 <_ZN6Writer12printIntBaseEiii>
+    8262:	83 c4 10             	add    esp,0x10
+    8265:	83 ec 08             	sub    esp,0x8
+    8268:	6a 2c                	push   0x2c
+    826a:	ff 74 24 4c          	push   DWORD PTR [esp+0x4c]
+    826e:	e8 15 08 00 00       	call   8a88 <_ZN6Writer9printCharEc>
+    8273:	83 c4 10             	add    esp,0x10
+    8276:	83 ec 08             	sub    esp,0x8
+    8279:	6a 20                	push   0x20
+    827b:	ff 74 24 4c          	push   DWORD PTR [esp+0x4c]
+    827f:	e8 04 08 00 00       	call   8a88 <_ZN6Writer9printCharEc>
+    8284:	83 c4 10             	add    esp,0x10
+    8287:	0f b6 44 24 0f       	movzx  eax,BYTE PTR [esp+0xf]
+    828c:	89 44 24 2c          	mov    DWORD PTR [esp+0x2c],eax
+    8290:	83 44 24 20 01       	add    DWORD PTR [esp+0x20],0x1
+    8295:	83 54 24 24 00       	adc    DWORD PTR [esp+0x24],0x0
+    829a:	e9 46 ff ff ff       	jmp    81e5 <_Z15check_writeableR6Writer+0x6f>
+    829f:	83 ec 08             	sub    esp,0x8
+    82a2:	68 47 b0 00 00       	push   0xb047
+    82a7:	ff 74 24 4c          	push   DWORD PTR [esp+0x4c]
+    82ab:	e8 9c 05 00 00       	call   884c <_ZN6WriterlsEPKc>
+    82b0:	83 c4 10             	add    esp,0x10
+    82b3:	83 ec 08             	sub    esp,0x8
+    82b6:	6a 0a                	push   0xa
+    82b8:	50                   	push   eax
+    82b9:	e8 40 05 00 00       	call   87fe <_ZN6WriterlsEc>
+    82be:	83 c4 10             	add    esp,0x10
+    82c1:	90                   	nop
+    82c2:	83 c4 3c             	add    esp,0x3c
+    82c5:	c3                   	ret    
+
+000082c6 <_Z8test_memR6Writer>:
+    82c6:	f3 0f 1e fb          	endbr32 
+    82ca:	53                   	push   ebx
+    82cb:	83 ec 48             	sub    esp,0x48
+    82ce:	c7 44 24 2c 04 00 00 	mov    DWORD PTR [esp+0x2c],0x4
+    82d5:	00 
+    82d6:	83 ec 0c             	sub    esp,0xc
+    82d9:	ff 74 24 38          	push   DWORD PTR [esp+0x38]
+    82dd:	e8 f4 02 00 00       	call   85d6 <_Z5alloci>
+    82e2:	83 c4 10             	add    esp,0x10
+    82e5:	89 44 24 28          	mov    DWORD PTR [esp+0x28],eax
+    82e9:	83 ec 0c             	sub    esp,0xc
+    82ec:	ff 74 24 38          	push   DWORD PTR [esp+0x38]
+    82f0:	e8 e1 02 00 00       	call   85d6 <_Z5alloci>
+    82f5:	83 c4 10             	add    esp,0x10
+    82f8:	89 44 24 24          	mov    DWORD PTR [esp+0x24],eax
+    82fc:	8b 44 24 28          	mov    eax,DWORD PTR [esp+0x28]
+    8300:	6a 08                	push   0x8
+    8302:	6a 10                	push   0x10
+    8304:	50                   	push   eax
+    8305:	ff 74 24 5c          	push   DWORD PTR [esp+0x5c]
+    8309:	e8 2a 08 00 00       	call   8b38 <_ZN6Writer12printIntBaseEiii>
+    830e:	83 c4 10             	add    esp,0x10
+    8311:	83 ec 08             	sub    esp,0x8
+    8314:	6a 20                	push   0x20
+    8316:	ff 74 24 5c          	push   DWORD PTR [esp+0x5c]
+    831a:	e8 df 04 00 00       	call   87fe <_ZN6WriterlsEc>
+    831f:	83 c4 10             	add    esp,0x10
+    8322:	8b 44 24 24          	mov    eax,DWORD PTR [esp+0x24]
+    8326:	6a 08                	push   0x8
+    8328:	6a 10                	push   0x10
+    832a:	50                   	push   eax
+    832b:	ff 74 24 5c          	push   DWORD PTR [esp+0x5c]
+    832f:	e8 04 08 00 00       	call   8b38 <_ZN6Writer12printIntBaseEiii>
+    8334:	83 c4 10             	add    esp,0x10
+    8337:	83 ec 08             	sub    esp,0x8
+    833a:	6a 0a                	push   0xa
+    833c:	ff 74 24 5c          	push   DWORD PTR [esp+0x5c]
+    8340:	e8 b9 04 00 00       	call   87fe <_ZN6WriterlsEc>
+    8345:	83 c4 10             	add    esp,0x10
+    8348:	c7 44 24 3c 00 00 00 	mov    DWORD PTR [esp+0x3c],0x0
+    834f:	00 
+    8350:	8b 44 24 3c          	mov    eax,DWORD PTR [esp+0x3c]
+    8354:	3b 44 24 2c          	cmp    eax,DWORD PTR [esp+0x2c]
+    8358:	7d 26                	jge    8380 <_Z8test_memR6Writer+0xba>
+    835a:	8b 44 24 3c          	mov    eax,DWORD PTR [esp+0x3c]
+    835e:	99                   	cdq    
+    835f:	c1 ea 18             	shr    edx,0x18
+    8362:	01 d0                	add    eax,edx
+    8364:	0f b6 c0             	movzx  eax,al
+    8367:	29 d0                	sub    eax,edx
+    8369:	89 c1                	mov    ecx,eax
+    836b:	8b 54 24 3c          	mov    edx,DWORD PTR [esp+0x3c]
+    836f:	8b 44 24 28          	mov    eax,DWORD PTR [esp+0x28]
+    8373:	01 d0                	add    eax,edx
+    8375:	89 ca                	mov    edx,ecx
+    8377:	88 10                	mov    BYTE PTR [eax],dl
+    8379:	83 44 24 3c 01       	add    DWORD PTR [esp+0x3c],0x1
+    837e:	eb d0                	jmp    8350 <_Z8test_memR6Writer+0x8a>
+    8380:	c7 44 24 38 00 00 00 	mov    DWORD PTR [esp+0x38],0x0
+    8387:	00 
+    8388:	8b 44 24 38          	mov    eax,DWORD PTR [esp+0x38]
+    838c:	3b 44 24 2c          	cmp    eax,DWORD PTR [esp+0x2c]
+    8390:	7d 39                	jge    83cb <_Z8test_memR6Writer+0x105>
+    8392:	8b 44 24 38          	mov    eax,DWORD PTR [esp+0x38]
+    8396:	8d 48 05             	lea    ecx,[eax+0x5]
+    8399:	ba d3 4d 62 10       	mov    edx,0x10624dd3
+    839e:	89 c8                	mov    eax,ecx
+    83a0:	f7 ea                	imul   edx
+    83a2:	89 d0                	mov    eax,edx
+    83a4:	c1 f8 04             	sar    eax,0x4
+    83a7:	89 ca                	mov    edx,ecx
+    83a9:	c1 fa 1f             	sar    edx,0x1f
+    83ac:	29 d0                	sub    eax,edx
+    83ae:	69 d0 fa 00 00 00    	imul   edx,eax,0xfa
+    83b4:	89 c8                	mov    eax,ecx
+    83b6:	29 d0                	sub    eax,edx
+    83b8:	8b 4c 24 38          	mov    ecx,DWORD PTR [esp+0x38]
+    83bc:	8b 54 24 24          	mov    edx,DWORD PTR [esp+0x24]
+    83c0:	01 ca                	add    edx,ecx
+    83c2:	88 02                	mov    BYTE PTR [edx],al
+    83c4:	83 44 24 38 01       	add    DWORD PTR [esp+0x38],0x1
+    83c9:	eb bd                	jmp    8388 <_Z8test_memR6Writer+0xc2>
+    83cb:	c7 44 24 0f 41 6e 20 	mov    DWORD PTR [esp+0xf],0x65206e41
+    83d2:	65 
+    83d3:	c7 44 24 13 72 72 6f 	mov    DWORD PTR [esp+0x13],0x726f7272
+    83da:	72 
+    83db:	c7 44 24 17 20 6f 63 	mov    DWORD PTR [esp+0x17],0x63636f20
+    83e2:	63 
+    83e3:	c7 44 24 1b 75 72 65 	mov    DWORD PTR [esp+0x1b],0x64657275
+    83ea:	64 
+    83eb:	c7 44 24 1f 20 61 74 	mov    DWORD PTR [esp+0x1f],0x20746120
+    83f2:	20 
+    83f3:	c6 44 24 23 00       	mov    BYTE PTR [esp+0x23],0x0
+    83f8:	c7 44 24 34 00 00 00 	mov    DWORD PTR [esp+0x34],0x0
+    83ff:	00 
+    8400:	8b 44 24 34          	mov    eax,DWORD PTR [esp+0x34]
+    8404:	3b 44 24 2c          	cmp    eax,DWORD PTR [esp+0x2c]
+    8408:	7d 70                	jge    847a <_Z8test_memR6Writer+0x1b4>
+    840a:	8b 54 24 34          	mov    edx,DWORD PTR [esp+0x34]
+    840e:	8b 44 24 28          	mov    eax,DWORD PTR [esp+0x28]
+    8412:	01 d0                	add    eax,edx
+    8414:	0f b6 10             	movzx  edx,BYTE PTR [eax]
+    8417:	8b 44 24 34          	mov    eax,DWORD PTR [esp+0x34]
+    841b:	89 c1                	mov    ecx,eax
+    841d:	c1 f9 1f             	sar    ecx,0x1f
+    8420:	c1 e9 18             	shr    ecx,0x18
+    8423:	01 c8                	add    eax,ecx
+    8425:	0f b6 c0             	movzx  eax,al
+    8428:	29 c8                	sub    eax,ecx
+    842a:	38 c2                	cmp    dl,al
+    842c:	74 45                	je     8473 <_Z8test_memR6Writer+0x1ad>
+    842e:	83 ec 08             	sub    esp,0x8
+    8431:	8d 44 24 17          	lea    eax,[esp+0x17]
+    8435:	50                   	push   eax
+    8436:	ff 74 24 5c          	push   DWORD PTR [esp+0x5c]
+    843a:	e8 91 05 00 00       	call   89d0 <_ZN6Writer5printEPc>
+    843f:	83 c4 10             	add    esp,0x10
+    8442:	8b 54 24 34          	mov    edx,DWORD PTR [esp+0x34]
+    8446:	8b 44 24 28          	mov    eax,DWORD PTR [esp+0x28]
+    844a:	01 d0                	add    eax,edx
+    844c:	6a 08                	push   0x8
+    844e:	6a 10                	push   0x10
+    8450:	50                   	push   eax
+    8451:	ff 74 24 5c          	push   DWORD PTR [esp+0x5c]
+    8455:	e8 de 06 00 00       	call   8b38 <_ZN6Writer12printIntBaseEiii>
+    845a:	83 c4 10             	add    esp,0x10
+    845d:	83 ec 08             	sub    esp,0x8
+    8460:	6a 0a                	push   0xa
+    8462:	ff 74 24 5c          	push   DWORD PTR [esp+0x5c]
+    8466:	e8 93 03 00 00       	call   87fe <_ZN6WriterlsEc>
+    846b:	83 c4 10             	add    esp,0x10
+    846e:	e9 c2 00 00 00       	jmp    8535 <_Z8test_memR6Writer+0x26f>
+    8473:	83 44 24 34 01       	add    DWORD PTR [esp+0x34],0x1
+    8478:	eb 86                	jmp    8400 <_Z8test_memR6Writer+0x13a>
+    847a:	c7 44 24 30 00 00 00 	mov    DWORD PTR [esp+0x30],0x0
+    8481:	00 
+    8482:	8b 44 24 30          	mov    eax,DWORD PTR [esp+0x30]
+    8486:	3b 44 24 2c          	cmp    eax,DWORD PTR [esp+0x2c]
+    848a:	0f 8d 83 00 00 00    	jge    8513 <_Z8test_memR6Writer+0x24d>
+    8490:	8b 54 24 30          	mov    edx,DWORD PTR [esp+0x30]
+    8494:	8b 44 24 24          	mov    eax,DWORD PTR [esp+0x24]
+    8498:	01 d0                	add    eax,edx
+    849a:	0f b6 18             	movzx  ebx,BYTE PTR [eax]
+    849d:	8b 44 24 30          	mov    eax,DWORD PTR [esp+0x30]
+    84a1:	8d 48 05             	lea    ecx,[eax+0x5]
+    84a4:	ba d3 4d 62 10       	mov    edx,0x10624dd3
+    84a9:	89 c8                	mov    eax,ecx
+    84ab:	f7 ea                	imul   edx
+    84ad:	89 d0                	mov    eax,edx
+    84af:	c1 f8 04             	sar    eax,0x4
+    84b2:	89 ca                	mov    edx,ecx
+    84b4:	c1 fa 1f             	sar    edx,0x1f
+    84b7:	29 d0                	sub    eax,edx
+    84b9:	69 d0 fa 00 00 00    	imul   edx,eax,0xfa
+    84bf:	89 c8                	mov    eax,ecx
+    84c1:	29 d0                	sub    eax,edx
+    84c3:	38 c3                	cmp    bl,al
+    84c5:	74 42                	je     8509 <_Z8test_memR6Writer+0x243>
+    84c7:	83 ec 08             	sub    esp,0x8
+    84ca:	8d 44 24 17          	lea    eax,[esp+0x17]
+    84ce:	50                   	push   eax
+    84cf:	ff 74 24 5c          	push   DWORD PTR [esp+0x5c]
+    84d3:	e8 f8 04 00 00       	call   89d0 <_ZN6Writer5printEPc>
+    84d8:	83 c4 10             	add    esp,0x10
+    84db:	8b 54 24 30          	mov    edx,DWORD PTR [esp+0x30]
+    84df:	8b 44 24 24          	mov    eax,DWORD PTR [esp+0x24]
+    84e3:	01 d0                	add    eax,edx
+    84e5:	6a 08                	push   0x8
+    84e7:	6a 10                	push   0x10
+    84e9:	50                   	push   eax
+    84ea:	ff 74 24 5c          	push   DWORD PTR [esp+0x5c]
+    84ee:	e8 45 06 00 00       	call   8b38 <_ZN6Writer12printIntBaseEiii>
+    84f3:	83 c4 10             	add    esp,0x10
+    84f6:	83 ec 08             	sub    esp,0x8
+    84f9:	6a 0a                	push   0xa
+    84fb:	ff 74 24 5c          	push   DWORD PTR [esp+0x5c]
+    84ff:	e8 fa 02 00 00       	call   87fe <_ZN6WriterlsEc>
+    8504:	83 c4 10             	add    esp,0x10
+    8507:	eb 2c                	jmp    8535 <_Z8test_memR6Writer+0x26f>
+    8509:	83 44 24 30 01       	add    DWORD PTR [esp+0x30],0x1
+    850e:	e9 6f ff ff ff       	jmp    8482 <_Z8test_memR6Writer+0x1bc>
+    8513:	83 ec 08             	sub    esp,0x8
+    8516:	68 50 b0 00 00       	push   0xb050
+    851b:	ff 74 24 5c          	push   DWORD PTR [esp+0x5c]
+    851f:	e8 28 03 00 00       	call   884c <_ZN6WriterlsEPKc>
+    8524:	83 c4 10             	add    esp,0x10
+    8527:	83 ec 08             	sub    esp,0x8
+    852a:	6a 0a                	push   0xa
+    852c:	50                   	push   eax
+    852d:	e8 cc 02 00 00       	call   87fe <_ZN6WriterlsEc>
+    8532:	83 c4 10             	add    esp,0x10
+    8535:	83 c4 48             	add    esp,0x48
+    8538:	5b                   	pop    ebx
+    8539:	c3                   	ret    
+    853a:	66 90                	xchg   ax,ax
+    853c:	66 90                	xchg   ax,ax
+    853e:	66 90                	xchg   ax,ax
+
+00008540 <alloc_static>:
+    8540:	a1 fe ff f7 03       	mov    eax,ds:0x3f7fffe
+    8545:	03 44 24 04          	add    eax,DWORD PTR [esp+0x4]
+    8549:	a3 fe ff f7 03       	mov    ds:0x3f7fffe,eax
+    854e:	2b 44 24 04          	sub    eax,DWORD PTR [esp+0x4]
+    8552:	c3                   	ret    
+
+00008553 <port_byte_in>:
+    8553:	55                   	push   ebp
+    8554:	89 e5                	mov    ebp,esp
+    8556:	52                   	push   edx
+    8557:	31 c0                	xor    eax,eax
+    8559:	8b 55 08             	mov    edx,DWORD PTR [ebp+0x8]
+    855c:	ec                   	in     al,dx
+    855d:	5a                   	pop    edx
+    855e:	89 ec                	mov    esp,ebp
+    8560:	5d                   	pop    ebp
+    8561:	c3                   	ret    
+
+00008562 <port_byte_out>:
+    8562:	55                   	push   ebp
+    8563:	89 e5                	mov    ebp,esp
+    8565:	52                   	push   edx
+    8566:	50                   	push   eax
+    8567:	8b 55 08             	mov    edx,DWORD PTR [ebp+0x8]
+    856a:	8b 45 0c             	mov    eax,DWORD PTR [ebp+0xc]
+    856d:	ee                   	out    dx,al
+    856e:	58                   	pop    eax
+    856f:	5a                   	pop    edx
+    8570:	89 ec                	mov    esp,ebp
+    8572:	5d                   	pop    ebp
+    8573:	c3                   	ret    
+
+00008574 <port_word_in>:
+    8574:	55                   	push   ebp
+    8575:	89 e5                	mov    ebp,esp
+    8577:	52                   	push   edx
+    8578:	31 c0                	xor    eax,eax
+    857a:	8b 55 08             	mov    edx,DWORD PTR [ebp+0x8]
+    857d:	66 ed                	in     ax,dx
+    857f:	5a                   	pop    edx
+    8580:	89 ec                	mov    esp,ebp
+    8582:	5d                   	pop    ebp
+    8583:	c3                   	ret    
+
+00008584 <port_word_out>:
+    8584:	55                   	push   ebp
+    8585:	89 e5                	mov    ebp,esp
+    8587:	52                   	push   edx
+    8588:	50                   	push   eax
+    8589:	8b 55 08             	mov    edx,DWORD PTR [ebp+0x8]
+    858c:	8b 45 0c             	mov    eax,DWORD PTR [ebp+0xc]
+    858f:	66 ef                	out    dx,ax
+    8591:	58                   	pop    eax
+    8592:	5a                   	pop    edx
+    8593:	89 ec                	mov    esp,ebp
+    8595:	5d                   	pop    ebp
+    8596:	c3                   	ret    
+
+00008597 <memtest>:
+    8597:	8b 44 24 04          	mov    eax,DWORD PTR [esp+0x4]
+    859b:	c7 00 78 56 34 12    	mov    DWORD PTR [eax],0x12345678
+
+000085a1 <memtest._if>:
+    85a1:	81 38 78 56 34 12    	cmp    DWORD PTR [eax],0x12345678
+    85a7:	74 07                	je     85b0 <memtest._then>
+
+000085a9 <memtest._else>:
+    85a9:	b8 00 00 00 00       	mov    eax,0x0
+    85ae:	eb 05                	jmp    85b5 <memtest._done>
+
+000085b0 <memtest._then>:
+    85b0:	b8 01 00 00 00       	mov    eax,0x1
+
+000085b5 <memtest._done>:
+    85b5:	c3                   	ret    
+
+000085b6 <test_asm>:
+    85b6:	55                   	push   ebp
+    85b7:	89 e5                	mov    ebp,esp
+    85b9:	52                   	push   edx
+    85ba:	53                   	push   ebx
+    85bb:	31 d2                	xor    edx,edx
+    85bd:	66 b8 67 18          	mov    ax,0x1867
+    85c1:	66 bb 84 07          	mov    bx,0x784
+    85c5:	66 f7 e3             	mul    bx
+    85c8:	c1 e2 10             	shl    edx,0x10
+    85cb:	66 89 c2             	mov    dx,ax
+    85ce:	89 d0                	mov    eax,edx
+    85d0:	5b                   	pop    ebx
+    85d1:	5a                   	pop    edx
+    85d2:	89 ec                	mov    esp,ebp
+    85d4:	5d                   	pop    ebp
+    85d5:	c3                   	ret    
+
+000085d6 <_Z5alloci>:
+    85d6:	f3 0f 1e fb          	endbr32 
+    85da:	83 ec 0c             	sub    esp,0xc
+    85dd:	83 ec 0c             	sub    esp,0xc
+    85e0:	ff 74 24 1c          	push   DWORD PTR [esp+0x1c]
+    85e4:	e8 57 ff ff ff       	call   8540 <alloc_static>
+    85e9:	83 c4 10             	add    esp,0x10
+    85ec:	83 c4 0c             	add    esp,0xc
+    85ef:	c3                   	ret    
+
+000085f0 <_ZN6Writer6fixPosEv>:
+    85f0:	f3 0f 1e fb          	endbr32 
+    85f4:	83 ec 0c             	sub    esp,0xc
+    85f7:	8b 44 24 10          	mov    eax,DWORD PTR [esp+0x10]
+    85fb:	8b 40 04             	mov    eax,DWORD PTR [eax+0x4]
+    85fe:	83 f8 4f             	cmp    eax,0x4f
+    8601:	7e 1a                	jle    861d <_ZN6Writer6fixPosEv+0x2d>
+    8603:	8b 44 24 10          	mov    eax,DWORD PTR [esp+0x10]
+    8607:	c7 40 04 00 00 00 00 	mov    DWORD PTR [eax+0x4],0x0
+    860e:	8b 44 24 10          	mov    eax,DWORD PTR [esp+0x10]
+    8612:	8b 00                	mov    eax,DWORD PTR [eax]
+    8614:	8d 50 01             	lea    edx,[eax+0x1]
+    8617:	8b 44 24 10          	mov    eax,DWORD PTR [esp+0x10]
+    861b:	89 10                	mov    DWORD PTR [eax],edx
+    861d:	8b 44 24 10          	mov    eax,DWORD PTR [esp+0x10]
+    8621:	8b 00                	mov    eax,DWORD PTR [eax]
+    8623:	83 f8 18             	cmp    eax,0x18
+    8626:	7e 1e                	jle    8646 <_ZN6Writer6fixPosEv+0x56>
+    8628:	8b 44 24 10          	mov    eax,DWORD PTR [esp+0x10]
+    862c:	8b 00                	mov    eax,DWORD PTR [eax]
+    862e:	8d 50 ff             	lea    edx,[eax-0x1]
+    8631:	8b 44 24 10          	mov    eax,DWORD PTR [esp+0x10]
+    8635:	89 10                	mov    DWORD PTR [eax],edx
+    8637:	83 ec 0c             	sub    esp,0xc
+    863a:	ff 74 24 1c          	push   DWORD PTR [esp+0x1c]
+    863e:	e8 ad 02 00 00       	call   88f0 <_ZN6Writer12scrollScreenEv>
+    8643:	83 c4 10             	add    esp,0x10
+    8646:	8b 44 24 10          	mov    eax,DWORD PTR [esp+0x10]
+    864a:	8b 50 04             	mov    edx,DWORD PTR [eax+0x4]
+    864d:	8b 44 24 10          	mov    eax,DWORD PTR [esp+0x10]
+    8651:	8b 00                	mov    eax,DWORD PTR [eax]
+    8653:	83 ec 04             	sub    esp,0x4
+    8656:	52                   	push   edx
+    8657:	50                   	push   eax
+    8658:	ff 74 24 1c          	push   DWORD PTR [esp+0x1c]
+    865c:	e8 35 00 00 00       	call   8696 <_ZN6Writer10moveCursorEii>
+    8661:	83 c4 10             	add    esp,0x10
+    8664:	90                   	nop
+    8665:	83 c4 0c             	add    esp,0xc
+    8668:	c3                   	ret    
+    8669:	90                   	nop
+
+0000866a <_ZN6Writer8nextCharEv>:
+    866a:	f3 0f 1e fb          	endbr32 
+    866e:	83 ec 0c             	sub    esp,0xc
+    8671:	8b 44 24 10          	mov    eax,DWORD PTR [esp+0x10]
+    8675:	8b 40 04             	mov    eax,DWORD PTR [eax+0x4]
+    8678:	8d 50 01             	lea    edx,[eax+0x1]
+    867b:	8b 44 24 10          	mov    eax,DWORD PTR [esp+0x10]
+    867f:	89 50 04             	mov    DWORD PTR [eax+0x4],edx
+    8682:	83 ec 0c             	sub    esp,0xc
+    8685:	ff 74 24 1c          	push   DWORD PTR [esp+0x1c]
+    8689:	e8 62 ff ff ff       	call   85f0 <_ZN6Writer6fixPosEv>
+    868e:	83 c4 10             	add    esp,0x10
+    8691:	90                   	nop
+    8692:	83 c4 0c             	add    esp,0xc
+    8695:	c3                   	ret    
+
+00008696 <_ZN6Writer10moveCursorEii>:
+    8696:	f3 0f 1e fb          	endbr32 
+    869a:	83 ec 1c             	sub    esp,0x1c
+    869d:	8b 44 24 24          	mov    eax,DWORD PTR [esp+0x24]
+    86a1:	89 c2                	mov    edx,eax
+    86a3:	89 d0                	mov    eax,edx
+    86a5:	c1 e0 02             	shl    eax,0x2
+    86a8:	01 d0                	add    eax,edx
+    86aa:	c1 e0 04             	shl    eax,0x4
+    86ad:	89 c2                	mov    edx,eax
+    86af:	8b 44 24 28          	mov    eax,DWORD PTR [esp+0x28]
+    86b3:	01 d0                	add    eax,edx
+    86b5:	66 89 44 24 0e       	mov    WORD PTR [esp+0xe],ax
+    86ba:	83 ec 08             	sub    esp,0x8
+    86bd:	6a 0f                	push   0xf
+    86bf:	68 d4 03 00 00       	push   0x3d4
+    86c4:	e8 99 fe ff ff       	call   8562 <port_byte_out>
+    86c9:	83 c4 10             	add    esp,0x10
+    86cc:	0f b7 44 24 0e       	movzx  eax,WORD PTR [esp+0xe]
+    86d1:	0f be c0             	movsx  eax,al
+    86d4:	83 ec 08             	sub    esp,0x8
+    86d7:	50                   	push   eax
+    86d8:	68 d5 03 00 00       	push   0x3d5
+    86dd:	e8 80 fe ff ff       	call   8562 <port_byte_out>
+    86e2:	83 c4 10             	add    esp,0x10
+    86e5:	83 ec 08             	sub    esp,0x8
+    86e8:	6a 0e                	push   0xe
+    86ea:	68 d4 03 00 00       	push   0x3d4
+    86ef:	e8 6e fe ff ff       	call   8562 <port_byte_out>
+    86f4:	83 c4 10             	add    esp,0x10
+    86f7:	0f b7 44 24 0e       	movzx  eax,WORD PTR [esp+0xe]
+    86fc:	66 c1 e8 08          	shr    ax,0x8
+    8700:	0f be c0             	movsx  eax,al
+    8703:	83 ec 08             	sub    esp,0x8
+    8706:	50                   	push   eax
+    8707:	68 d5 03 00 00       	push   0x3d5
+    870c:	e8 51 fe ff ff       	call   8562 <port_byte_out>
+    8711:	83 c4 10             	add    esp,0x10
+    8714:	90                   	nop
+    8715:	83 c4 1c             	add    esp,0x1c
+    8718:	c3                   	ret    
+    8719:	90                   	nop
+
+0000871a <_ZN6Writer9backspaceEv>:
+    871a:	f3 0f 1e fb          	endbr32 
+    871e:	83 ec 0c             	sub    esp,0xc
+    8721:	8b 44 24 10          	mov    eax,DWORD PTR [esp+0x10]
+    8725:	8b 40 04             	mov    eax,DWORD PTR [eax+0x4]
+    8728:	83 f8 02             	cmp    eax,0x2
+    872b:	0f 8e 82 00 00 00    	jle    87b3 <_ZN6Writer9backspaceEv+0x99>
+    8731:	8b 44 24 10          	mov    eax,DWORD PTR [esp+0x10]
+    8735:	8b 40 04             	mov    eax,DWORD PTR [eax+0x4]
+    8738:	8d 50 ff             	lea    edx,[eax-0x1]
+    873b:	8b 44 24 10          	mov    eax,DWORD PTR [esp+0x10]
+    873f:	89 50 04             	mov    DWORD PTR [eax+0x4],edx
+    8742:	8b 44 24 10          	mov    eax,DWORD PTR [esp+0x10]
+    8746:	8b 10                	mov    edx,DWORD PTR [eax]
+    8748:	89 d0                	mov    eax,edx
+    874a:	c1 e0 02             	shl    eax,0x2
+    874d:	01 d0                	add    eax,edx
+    874f:	c1 e0 04             	shl    eax,0x4
+    8752:	89 c2                	mov    edx,eax
+    8754:	8b 44 24 10          	mov    eax,DWORD PTR [esp+0x10]
+    8758:	8b 40 04             	mov    eax,DWORD PTR [eax+0x4]
+    875b:	01 d0                	add    eax,edx
+    875d:	01 c0                	add    eax,eax
+    875f:	05 00 80 0b 00       	add    eax,0xb8000
+    8764:	c6 00 20             	mov    BYTE PTR [eax],0x20
+    8767:	8b 44 24 10          	mov    eax,DWORD PTR [esp+0x10]
+    876b:	8b 10                	mov    edx,DWORD PTR [eax]
+    876d:	89 d0                	mov    eax,edx
+    876f:	c1 e0 02             	shl    eax,0x2
+    8772:	01 d0                	add    eax,edx
+    8774:	c1 e0 04             	shl    eax,0x4
+    8777:	89 c2                	mov    edx,eax
+    8779:	8b 44 24 10          	mov    eax,DWORD PTR [esp+0x10]
+    877d:	8b 40 04             	mov    eax,DWORD PTR [eax+0x4]
+    8780:	01 d0                	add    eax,edx
+    8782:	01 c0                	add    eax,eax
+    8784:	05 01 80 0b 00       	add    eax,0xb8001
+    8789:	89 c2                	mov    edx,eax
+    878b:	8b 44 24 10          	mov    eax,DWORD PTR [esp+0x10]
+    878f:	0f b6 40 08          	movzx  eax,BYTE PTR [eax+0x8]
+    8793:	88 02                	mov    BYTE PTR [edx],al
+    8795:	8b 44 24 10          	mov    eax,DWORD PTR [esp+0x10]
+    8799:	8b 50 04             	mov    edx,DWORD PTR [eax+0x4]
+    879c:	8b 44 24 10          	mov    eax,DWORD PTR [esp+0x10]
+    87a0:	8b 00                	mov    eax,DWORD PTR [eax]
+    87a2:	83 ec 04             	sub    esp,0x4
+    87a5:	52                   	push   edx
+    87a6:	50                   	push   eax
+    87a7:	ff 74 24 1c          	push   DWORD PTR [esp+0x1c]
+    87ab:	e8 e6 fe ff ff       	call   8696 <_ZN6Writer10moveCursorEii>
+    87b0:	83 c4 10             	add    esp,0x10
+    87b3:	90                   	nop
+    87b4:	83 c4 0c             	add    esp,0xc
+    87b7:	c3                   	ret    
+
+000087b8 <_ZN6WriterC1Ev>:
+    87b8:	f3 0f 1e fb          	endbr32 
+    87bc:	8b 44 24 04          	mov    eax,DWORD PTR [esp+0x4]
+    87c0:	c7 00 00 00 00 00    	mov    DWORD PTR [eax],0x0
+    87c6:	8b 44 24 04          	mov    eax,DWORD PTR [esp+0x4]
+    87ca:	c7 40 04 00 00 00 00 	mov    DWORD PTR [eax+0x4],0x0
+    87d1:	8b 44 24 04          	mov    eax,DWORD PTR [esp+0x4]
+    87d5:	c6 40 08 0f          	mov    BYTE PTR [eax+0x8],0xf
+    87d9:	90                   	nop
+    87da:	c3                   	ret    
+    87db:	90                   	nop
+
+000087dc <_ZN6WriterlsEi>:
+    87dc:	f3 0f 1e fb          	endbr32 
+    87e0:	83 ec 0c             	sub    esp,0xc
+    87e3:	83 ec 08             	sub    esp,0x8
+    87e6:	ff 74 24 1c          	push   DWORD PTR [esp+0x1c]
+    87ea:	ff 74 24 1c          	push   DWORD PTR [esp+0x1c]
+    87ee:	e8 75 02 00 00       	call   8a68 <_ZN6Writer8printIntEi>
+    87f3:	83 c4 10             	add    esp,0x10
+    87f6:	8b 44 24 10          	mov    eax,DWORD PTR [esp+0x10]
+    87fa:	83 c4 0c             	add    esp,0xc
+    87fd:	c3                   	ret    
+
+000087fe <_ZN6WriterlsEc>:
+    87fe:	f3 0f 1e fb          	endbr32 
+    8802:	83 ec 1c             	sub    esp,0x1c
+    8805:	8b 44 24 24          	mov    eax,DWORD PTR [esp+0x24]
+    8809:	88 44 24 0c          	mov    BYTE PTR [esp+0xc],al
+    880d:	0f be 44 24 0c       	movsx  eax,BYTE PTR [esp+0xc]
+    8812:	83 ec 08             	sub    esp,0x8
+    8815:	50                   	push   eax
+    8816:	ff 74 24 2c          	push   DWORD PTR [esp+0x2c]
+    881a:	e8 69 02 00 00       	call   8a88 <_ZN6Writer9printCharEc>
+    881f:	83 c4 10             	add    esp,0x10
+    8822:	8b 44 24 20          	mov    eax,DWORD PTR [esp+0x20]
+    8826:	83 c4 1c             	add    esp,0x1c
+    8829:	c3                   	ret    
+
+0000882a <_ZN6WriterlsEPc>:
+    882a:	f3 0f 1e fb          	endbr32 
+    882e:	83 ec 0c             	sub    esp,0xc
+    8831:	83 ec 08             	sub    esp,0x8
+    8834:	ff 74 24 1c          	push   DWORD PTR [esp+0x1c]
+    8838:	ff 74 24 1c          	push   DWORD PTR [esp+0x1c]
+    883c:	e8 8f 01 00 00       	call   89d0 <_ZN6Writer5printEPc>
+    8841:	83 c4 10             	add    esp,0x10
+    8844:	8b 44 24 10          	mov    eax,DWORD PTR [esp+0x10]
+    8848:	83 c4 0c             	add    esp,0xc
+    884b:	c3                   	ret    
+
+0000884c <_ZN6WriterlsEPKc>:
+    884c:	f3 0f 1e fb          	endbr32 
+    8850:	83 ec 0c             	sub    esp,0xc
+    8853:	83 ec 08             	sub    esp,0x8
+    8856:	ff 74 24 1c          	push   DWORD PTR [esp+0x1c]
+    885a:	ff 74 24 1c          	push   DWORD PTR [esp+0x1c]
+    885e:	e8 b9 01 00 00       	call   8a1c <_ZN6Writer5printEPKc>
+    8863:	83 c4 10             	add    esp,0x10
+    8866:	8b 44 24 10          	mov    eax,DWORD PTR [esp+0x10]
+    886a:	83 c4 0c             	add    esp,0xc
+    886d:	c3                   	ret    
+
+0000886e <_ZN6Writer8setColorEc>:
+    886e:	f3 0f 1e fb          	endbr32 
+    8872:	83 ec 04             	sub    esp,0x4
+    8875:	8b 44 24 0c          	mov    eax,DWORD PTR [esp+0xc]
+    8879:	88 04 24             	mov    BYTE PTR [esp],al
+    887c:	8b 44 24 08          	mov    eax,DWORD PTR [esp+0x8]
+    8880:	0f b6 14 24          	movzx  edx,BYTE PTR [esp]
+    8884:	88 50 08             	mov    BYTE PTR [eax+0x8],dl
+    8887:	90                   	nop
+    8888:	83 c4 04             	add    esp,0x4
+    888b:	c3                   	ret    
+
+0000888c <_ZN6Writer11clearScreenEv>:
+    888c:	f3 0f 1e fb          	endbr32 
+    8890:	83 ec 10             	sub    esp,0x10
+    8893:	c7 44 24 0c 00 00 00 	mov    DWORD PTR [esp+0xc],0x0
+    889a:	00 
+    889b:	81 7c 24 0c 9f 0f 00 	cmp    DWORD PTR [esp+0xc],0xf9f
+    88a2:	00 
+    88a3:	7f 15                	jg     88ba <_ZN6Writer11clearScreenEv+0x2e>
+    88a5:	8b 44 24 0c          	mov    eax,DWORD PTR [esp+0xc]
+    88a9:	05 00 80 0b 00       	add    eax,0xb8000
+    88ae:	66 c7 00 00 00       	mov    WORD PTR [eax],0x0
+    88b3:	83 44 24 0c 02       	add    DWORD PTR [esp+0xc],0x2
+    88b8:	eb e1                	jmp    889b <_ZN6Writer11clearScreenEv+0xf>
+    88ba:	8b 44 24 14          	mov    eax,DWORD PTR [esp+0x14]
+    88be:	c7 00 00 00 00 00    	mov    DWORD PTR [eax],0x0
+    88c4:	8b 44 24 14          	mov    eax,DWORD PTR [esp+0x14]
+    88c8:	c7 40 04 00 00 00 00 	mov    DWORD PTR [eax+0x4],0x0
+    88cf:	90                   	nop
+    88d0:	83 c4 10             	add    esp,0x10
+    88d3:	c3                   	ret    
+
+000088d4 <_ZN6Writer6setPosEii>:
+    88d4:	f3 0f 1e fb          	endbr32 
+    88d8:	8b 44 24 04          	mov    eax,DWORD PTR [esp+0x4]
+    88dc:	8b 54 24 08          	mov    edx,DWORD PTR [esp+0x8]
+    88e0:	89 10                	mov    DWORD PTR [eax],edx
+    88e2:	8b 44 24 04          	mov    eax,DWORD PTR [esp+0x4]
+    88e6:	8b 54 24 0c          	mov    edx,DWORD PTR [esp+0xc]
+    88ea:	89 50 04             	mov    DWORD PTR [eax+0x4],edx
+    88ed:	90                   	nop
+    88ee:	c3                   	ret    
+    88ef:	90                   	nop
+
+000088f0 <_ZN6Writer12scrollScreenEv>:
+    88f0:	f3 0f 1e fb          	endbr32 
+    88f4:	83 ec 10             	sub    esp,0x10
+    88f7:	c7 44 24 0c 01 00 00 	mov    DWORD PTR [esp+0xc],0x1
+    88fe:	00 
+    88ff:	83 7c 24 0c 18       	cmp    DWORD PTR [esp+0xc],0x18
+    8904:	7f 64                	jg     896a <_ZN6Writer12scrollScreenEv+0x7a>
+    8906:	c7 44 24 08 00 00 00 	mov    DWORD PTR [esp+0x8],0x0
+    890d:	00 
+    890e:	83 7c 24 08 4f       	cmp    DWORD PTR [esp+0x8],0x4f
+    8913:	7f 4e                	jg     8963 <_ZN6Writer12scrollScreenEv+0x73>
+    8915:	8b 54 24 0c          	mov    edx,DWORD PTR [esp+0xc]
+    8919:	89 d0                	mov    eax,edx
+    891b:	c1 e0 02             	shl    eax,0x2
+    891e:	01 d0                	add    eax,edx
+    8920:	c1 e0 04             	shl    eax,0x4
+    8923:	89 c2                	mov    edx,eax
+    8925:	8b 44 24 08          	mov    eax,DWORD PTR [esp+0x8]
+    8929:	01 d0                	add    eax,edx
+    892b:	01 c0                	add    eax,eax
+    892d:	05 00 80 0b 00       	add    eax,0xb8000
+    8932:	89 c1                	mov    ecx,eax
+    8934:	8b 44 24 0c          	mov    eax,DWORD PTR [esp+0xc]
+    8938:	8d 50 ff             	lea    edx,[eax-0x1]
+    893b:	89 d0                	mov    eax,edx
+    893d:	c1 e0 02             	shl    eax,0x2
+    8940:	01 d0                	add    eax,edx
+    8942:	c1 e0 04             	shl    eax,0x4
+    8945:	89 c2                	mov    edx,eax
+    8947:	8b 44 24 08          	mov    eax,DWORD PTR [esp+0x8]
+    894b:	01 d0                	add    eax,edx
+    894d:	01 c0                	add    eax,eax
+    894f:	05 00 80 0b 00       	add    eax,0xb8000
+    8954:	89 c2                	mov    edx,eax
+    8956:	0f b7 01             	movzx  eax,WORD PTR [ecx]
+    8959:	66 89 02             	mov    WORD PTR [edx],ax
+    895c:	83 44 24 08 01       	add    DWORD PTR [esp+0x8],0x1
+    8961:	eb ab                	jmp    890e <_ZN6Writer12scrollScreenEv+0x1e>
+    8963:	83 44 24 0c 01       	add    DWORD PTR [esp+0xc],0x1
+    8968:	eb 95                	jmp    88ff <_ZN6Writer12scrollScreenEv+0xf>
+    896a:	c7 44 24 04 00 00 00 	mov    DWORD PTR [esp+0x4],0x0
+    8971:	00 
+    8972:	83 7c 24 04 4f       	cmp    DWORD PTR [esp+0x4],0x4f
+    8977:	7f 1c                	jg     8995 <_ZN6Writer12scrollScreenEv+0xa5>
+    8979:	8b 44 24 04          	mov    eax,DWORD PTR [esp+0x4]
+    897d:	05 80 07 00 00       	add    eax,0x780
+    8982:	01 c0                	add    eax,eax
+    8984:	05 00 80 0b 00       	add    eax,0xb8000
+    8989:	66 c7 00 00 00       	mov    WORD PTR [eax],0x0
+    898e:	83 44 24 04 01       	add    DWORD PTR [esp+0x4],0x1
+    8993:	eb dd                	jmp    8972 <_ZN6Writer12scrollScreenEv+0x82>
+    8995:	90                   	nop
+    8996:	83 c4 10             	add    esp,0x10
+    8999:	c3                   	ret    
+
+0000899a <_ZN6Writer8nextLineEv>:
+    899a:	f3 0f 1e fb          	endbr32 
+    899e:	83 ec 0c             	sub    esp,0xc
+    89a1:	8b 44 24 10          	mov    eax,DWORD PTR [esp+0x10]
+    89a5:	c7 40 04 00 00 00 00 	mov    DWORD PTR [eax+0x4],0x0
+    89ac:	8b 44 24 10          	mov    eax,DWORD PTR [esp+0x10]
+    89b0:	8b 00                	mov    eax,DWORD PTR [eax]
+    89b2:	8d 50 01             	lea    edx,[eax+0x1]
+    89b5:	8b 44 24 10          	mov    eax,DWORD PTR [esp+0x10]
+    89b9:	89 10                	mov    DWORD PTR [eax],edx
+    89bb:	83 ec 0c             	sub    esp,0xc
+    89be:	ff 74 24 1c          	push   DWORD PTR [esp+0x1c]
+    89c2:	e8 29 fc ff ff       	call   85f0 <_ZN6Writer6fixPosEv>
+    89c7:	83 c4 10             	add    esp,0x10
+    89ca:	90                   	nop
+    89cb:	83 c4 0c             	add    esp,0xc
+    89ce:	c3                   	ret    
+    89cf:	90                   	nop
+
+000089d0 <_ZN6Writer5printEPc>:
+    89d0:	f3 0f 1e fb          	endbr32 
+    89d4:	83 ec 1c             	sub    esp,0x1c
+    89d7:	c7 44 24 0c 00 00 00 	mov    DWORD PTR [esp+0xc],0x0
+    89de:	00 
+    89df:	8b 54 24 0c          	mov    edx,DWORD PTR [esp+0xc]
+    89e3:	8b 44 24 24          	mov    eax,DWORD PTR [esp+0x24]
+    89e7:	01 d0                	add    eax,edx
+    89e9:	0f b6 00             	movzx  eax,BYTE PTR [eax]
+    89ec:	84 c0                	test   al,al
+    89ee:	74 27                	je     8a17 <_ZN6Writer5printEPc+0x47>
+    89f0:	8b 54 24 0c          	mov    edx,DWORD PTR [esp+0xc]
+    89f4:	8b 44 24 24          	mov    eax,DWORD PTR [esp+0x24]
+    89f8:	01 d0                	add    eax,edx
+    89fa:	0f b6 00             	movzx  eax,BYTE PTR [eax]
+    89fd:	0f be c0             	movsx  eax,al
+    8a00:	83 ec 08             	sub    esp,0x8
+    8a03:	50                   	push   eax
+    8a04:	ff 74 24 2c          	push   DWORD PTR [esp+0x2c]
+    8a08:	e8 7b 00 00 00       	call   8a88 <_ZN6Writer9printCharEc>
+    8a0d:	83 c4 10             	add    esp,0x10
+    8a10:	83 44 24 0c 01       	add    DWORD PTR [esp+0xc],0x1
+    8a15:	eb c8                	jmp    89df <_ZN6Writer5printEPc+0xf>
+    8a17:	90                   	nop
+    8a18:	83 c4 1c             	add    esp,0x1c
+    8a1b:	c3                   	ret    
+
+00008a1c <_ZN6Writer5printEPKc>:
+    8a1c:	f3 0f 1e fb          	endbr32 
+    8a20:	83 ec 1c             	sub    esp,0x1c
+    8a23:	c7 44 24 0c 00 00 00 	mov    DWORD PTR [esp+0xc],0x0
+    8a2a:	00 
+    8a2b:	8b 54 24 0c          	mov    edx,DWORD PTR [esp+0xc]
+    8a2f:	8b 44 24 24          	mov    eax,DWORD PTR [esp+0x24]
+    8a33:	01 d0                	add    eax,edx
+    8a35:	0f b6 00             	movzx  eax,BYTE PTR [eax]
+    8a38:	84 c0                	test   al,al
+    8a3a:	74 27                	je     8a63 <_ZN6Writer5printEPKc+0x47>
+    8a3c:	8b 54 24 0c          	mov    edx,DWORD PTR [esp+0xc]
+    8a40:	8b 44 24 24          	mov    eax,DWORD PTR [esp+0x24]
+    8a44:	01 d0                	add    eax,edx
+    8a46:	0f b6 00             	movzx  eax,BYTE PTR [eax]
+    8a49:	0f be c0             	movsx  eax,al
+    8a4c:	83 ec 08             	sub    esp,0x8
+    8a4f:	50                   	push   eax
+    8a50:	ff 74 24 2c          	push   DWORD PTR [esp+0x2c]
+    8a54:	e8 2f 00 00 00       	call   8a88 <_ZN6Writer9printCharEc>
+    8a59:	83 c4 10             	add    esp,0x10
+    8a5c:	83 44 24 0c 01       	add    DWORD PTR [esp+0xc],0x1
+    8a61:	eb c8                	jmp    8a2b <_ZN6Writer5printEPKc+0xf>
+    8a63:	90                   	nop
+    8a64:	83 c4 1c             	add    esp,0x1c
+    8a67:	c3                   	ret    
+
+00008a68 <_ZN6Writer8printIntEi>:
+    8a68:	f3 0f 1e fb          	endbr32 
+    8a6c:	83 ec 0c             	sub    esp,0xc
+    8a6f:	6a 00                	push   0x0
+    8a71:	6a 0a                	push   0xa
+    8a73:	ff 74 24 1c          	push   DWORD PTR [esp+0x1c]
+    8a77:	ff 74 24 1c          	push   DWORD PTR [esp+0x1c]
+    8a7b:	e8 b8 00 00 00       	call   8b38 <_ZN6Writer12printIntBaseEiii>
+    8a80:	83 c4 10             	add    esp,0x10
+    8a83:	90                   	nop
+    8a84:	83 c4 0c             	add    esp,0xc
+    8a87:	c3                   	ret    
+
+00008a88 <_ZN6Writer9printCharEc>:
+    8a88:	f3 0f 1e fb          	endbr32 
+    8a8c:	83 ec 1c             	sub    esp,0x1c
+    8a8f:	8b 44 24 24          	mov    eax,DWORD PTR [esp+0x24]
+    8a93:	88 44 24 0c          	mov    BYTE PTR [esp+0xc],al
+    8a97:	80 7c 24 0c 0a       	cmp    BYTE PTR [esp+0xc],0xa
+    8a9c:	75 14                	jne    8ab2 <_ZN6Writer9printCharEc+0x2a>
+    8a9e:	83 ec 0c             	sub    esp,0xc
+    8aa1:	ff 74 24 2c          	push   DWORD PTR [esp+0x2c]
+    8aa5:	e8 f0 fe ff ff       	call   899a <_ZN6Writer8nextLineEv>
+    8aaa:	83 c4 10             	add    esp,0x10
+    8aad:	e9 80 00 00 00       	jmp    8b32 <_ZN6Writer9printCharEc+0xaa>
+    8ab2:	80 7c 24 0c 08       	cmp    BYTE PTR [esp+0xc],0x8
+    8ab7:	75 11                	jne    8aca <_ZN6Writer9printCharEc+0x42>
+    8ab9:	83 ec 0c             	sub    esp,0xc
+    8abc:	ff 74 24 2c          	push   DWORD PTR [esp+0x2c]
+    8ac0:	e8 55 fc ff ff       	call   871a <_ZN6Writer9backspaceEv>
+    8ac5:	83 c4 10             	add    esp,0x10
+    8ac8:	eb 68                	jmp    8b32 <_ZN6Writer9printCharEc+0xaa>
+    8aca:	8b 44 24 20          	mov    eax,DWORD PTR [esp+0x20]
+    8ace:	8b 10                	mov    edx,DWORD PTR [eax]
+    8ad0:	89 d0                	mov    eax,edx
+    8ad2:	c1 e0 02             	shl    eax,0x2
+    8ad5:	01 d0                	add    eax,edx
+    8ad7:	c1 e0 04             	shl    eax,0x4
+    8ada:	89 c2                	mov    edx,eax
+    8adc:	8b 44 24 20          	mov    eax,DWORD PTR [esp+0x20]
+    8ae0:	8b 40 04             	mov    eax,DWORD PTR [eax+0x4]
+    8ae3:	01 d0                	add    eax,edx
+    8ae5:	01 c0                	add    eax,eax
+    8ae7:	05 00 80 0b 00       	add    eax,0xb8000
+    8aec:	89 c2                	mov    edx,eax
+    8aee:	0f b6 44 24 0c       	movzx  eax,BYTE PTR [esp+0xc]
+    8af3:	88 02                	mov    BYTE PTR [edx],al
+    8af5:	8b 44 24 20          	mov    eax,DWORD PTR [esp+0x20]
+    8af9:	8b 10                	mov    edx,DWORD PTR [eax]
+    8afb:	89 d0                	mov    eax,edx
+    8afd:	c1 e0 02             	shl    eax,0x2
+    8b00:	01 d0                	add    eax,edx
+    8b02:	c1 e0 04             	shl    eax,0x4
+    8b05:	89 c2                	mov    edx,eax
+    8b07:	8b 44 24 20          	mov    eax,DWORD PTR [esp+0x20]
+    8b0b:	8b 40 04             	mov    eax,DWORD PTR [eax+0x4]
+    8b0e:	01 d0                	add    eax,edx
+    8b10:	01 c0                	add    eax,eax
+    8b12:	05 01 80 0b 00       	add    eax,0xb8001
+    8b17:	89 c2                	mov    edx,eax
+    8b19:	8b 44 24 20          	mov    eax,DWORD PTR [esp+0x20]
+    8b1d:	0f b6 40 08          	movzx  eax,BYTE PTR [eax+0x8]
+    8b21:	88 02                	mov    BYTE PTR [edx],al
+    8b23:	83 ec 0c             	sub    esp,0xc
+    8b26:	ff 74 24 2c          	push   DWORD PTR [esp+0x2c]
+    8b2a:	e8 3b fb ff ff       	call   866a <_ZN6Writer8nextCharEv>
+    8b2f:	83 c4 10             	add    esp,0x10
+    8b32:	90                   	nop
+    8b33:	83 c4 1c             	add    esp,0x1c
+    8b36:	c3                   	ret    
+    8b37:	90                   	nop
+
+00008b38 <_ZN6Writer12printIntBaseEiii>:
+    8b38:	f3 0f 1e fb          	endbr32 
+    8b3c:	83 ec 3c             	sub    esp,0x3c
+    8b3f:	83 7c 24 44 00       	cmp    DWORD PTR [esp+0x44],0x0
+    8b44:	75 42                	jne    8b88 <_ZN6Writer12printIntBaseEiii+0x50>
+    8b46:	83 ec 08             	sub    esp,0x8
+    8b49:	6a 30                	push   0x30
+    8b4b:	ff 74 24 4c          	push   DWORD PTR [esp+0x4c]
+    8b4f:	e8 34 ff ff ff       	call   8a88 <_ZN6Writer9printCharEc>
+    8b54:	83 c4 10             	add    esp,0x10
+    8b57:	c7 44 24 2c 00 00 00 	mov    DWORD PTR [esp+0x2c],0x0
+    8b5e:	00 
+    8b5f:	8b 44 24 4c          	mov    eax,DWORD PTR [esp+0x4c]
+    8b63:	83 e8 01             	sub    eax,0x1
+    8b66:	39 44 24 2c          	cmp    DWORD PTR [esp+0x2c],eax
+    8b6a:	0f 8d 08 01 00 00    	jge    8c78 <_ZN6Writer12printIntBaseEiii+0x140>
+    8b70:	83 ec 08             	sub    esp,0x8
+    8b73:	6a 30                	push   0x30
+    8b75:	ff 74 24 4c          	push   DWORD PTR [esp+0x4c]
+    8b79:	e8 0a ff ff ff       	call   8a88 <_ZN6Writer9printCharEc>
+    8b7e:	83 c4 10             	add    esp,0x10
+    8b81:	83 44 24 2c 01       	add    DWORD PTR [esp+0x2c],0x1
+    8b86:	eb d7                	jmp    8b5f <_ZN6Writer12printIntBaseEiii+0x27>
+    8b88:	83 7c 24 44 00       	cmp    DWORD PTR [esp+0x44],0x0
+    8b8d:	79 15                	jns    8ba4 <_ZN6Writer12printIntBaseEiii+0x6c>
+    8b8f:	f7 5c 24 44          	neg    DWORD PTR [esp+0x44]
+    8b93:	83 ec 08             	sub    esp,0x8
+    8b96:	6a 2d                	push   0x2d
+    8b98:	ff 74 24 4c          	push   DWORD PTR [esp+0x4c]
+    8b9c:	e8 e7 fe ff ff       	call   8a88 <_ZN6Writer9printCharEc>
+    8ba1:	83 c4 10             	add    esp,0x10
+    8ba4:	c7 44 24 28 00 00 00 	mov    DWORD PTR [esp+0x28],0x0
+    8bab:	00 
+    8bac:	83 7c 24 28 1f       	cmp    DWORD PTR [esp+0x28],0x1f
+    8bb1:	7f 2b                	jg     8bde <_ZN6Writer12printIntBaseEiii+0xa6>
+    8bb3:	8b 44 24 44          	mov    eax,DWORD PTR [esp+0x44]
+    8bb7:	99                   	cdq    
+    8bb8:	f7 7c 24 48          	idiv   DWORD PTR [esp+0x48]
+    8bbc:	89 d0                	mov    eax,edx
+    8bbe:	89 c2                	mov    edx,eax
+    8bc0:	89 e1                	mov    ecx,esp
+    8bc2:	8b 44 24 28          	mov    eax,DWORD PTR [esp+0x28]
+    8bc6:	01 c8                	add    eax,ecx
+    8bc8:	88 10                	mov    BYTE PTR [eax],dl
+    8bca:	8b 44 24 44          	mov    eax,DWORD PTR [esp+0x44]
+    8bce:	99                   	cdq    
+    8bcf:	f7 7c 24 48          	idiv   DWORD PTR [esp+0x48]
+    8bd3:	89 44 24 44          	mov    DWORD PTR [esp+0x44],eax
+    8bd7:	83 44 24 28 01       	add    DWORD PTR [esp+0x28],0x1
+    8bdc:	eb ce                	jmp    8bac <_ZN6Writer12printIntBaseEiii+0x74>
+    8bde:	c6 44 24 27 00       	mov    BYTE PTR [esp+0x27],0x0
+    8be3:	c7 44 24 20 1f 00 00 	mov    DWORD PTR [esp+0x20],0x1f
+    8bea:	00 
+    8beb:	83 7c 24 20 00       	cmp    DWORD PTR [esp+0x20],0x0
+    8bf0:	0f 88 83 00 00 00    	js     8c79 <_ZN6Writer12printIntBaseEiii+0x141>
+    8bf6:	89 e2                	mov    edx,esp
+    8bf8:	8b 44 24 20          	mov    eax,DWORD PTR [esp+0x20]
+    8bfc:	01 d0                	add    eax,edx
+    8bfe:	0f b6 00             	movzx  eax,BYTE PTR [eax]
+    8c01:	84 c0                	test   al,al
+    8c03:	75 11                	jne    8c16 <_ZN6Writer12printIntBaseEiii+0xde>
+    8c05:	80 7c 24 27 00       	cmp    BYTE PTR [esp+0x27],0x0
+    8c0a:	75 0a                	jne    8c16 <_ZN6Writer12printIntBaseEiii+0xde>
+    8c0c:	8b 44 24 4c          	mov    eax,DWORD PTR [esp+0x4c]
+    8c10:	3b 44 24 20          	cmp    eax,DWORD PTR [esp+0x20]
+    8c14:	7e 58                	jle    8c6e <_ZN6Writer12printIntBaseEiii+0x136>
+    8c16:	c6 44 24 27 01       	mov    BYTE PTR [esp+0x27],0x1
+    8c1b:	89 e2                	mov    edx,esp
+    8c1d:	8b 44 24 20          	mov    eax,DWORD PTR [esp+0x20]
+    8c21:	01 d0                	add    eax,edx
+    8c23:	0f b6 00             	movzx  eax,BYTE PTR [eax]
+    8c26:	3c 09                	cmp    al,0x9
+    8c28:	7f 23                	jg     8c4d <_ZN6Writer12printIntBaseEiii+0x115>
+    8c2a:	89 e2                	mov    edx,esp
+    8c2c:	8b 44 24 20          	mov    eax,DWORD PTR [esp+0x20]
+    8c30:	01 d0                	add    eax,edx
+    8c32:	0f b6 00             	movzx  eax,BYTE PTR [eax]
+    8c35:	83 c0 30             	add    eax,0x30
+    8c38:	0f be c0             	movsx  eax,al
+    8c3b:	83 ec 08             	sub    esp,0x8
+    8c3e:	50                   	push   eax
+    8c3f:	ff 74 24 4c          	push   DWORD PTR [esp+0x4c]
+    8c43:	e8 40 fe ff ff       	call   8a88 <_ZN6Writer9printCharEc>
+    8c48:	83 c4 10             	add    esp,0x10
+    8c4b:	eb 21                	jmp    8c6e <_ZN6Writer12printIntBaseEiii+0x136>
+    8c4d:	89 e2                	mov    edx,esp
+    8c4f:	8b 44 24 20          	mov    eax,DWORD PTR [esp+0x20]
+    8c53:	01 d0                	add    eax,edx
+    8c55:	0f b6 00             	movzx  eax,BYTE PTR [eax]
+    8c58:	83 c0 57             	add    eax,0x57
+    8c5b:	0f be c0             	movsx  eax,al
+    8c5e:	83 ec 08             	sub    esp,0x8
+    8c61:	50                   	push   eax
+    8c62:	ff 74 24 4c          	push   DWORD PTR [esp+0x4c]
+    8c66:	e8 1d fe ff ff       	call   8a88 <_ZN6Writer9printCharEc>
+    8c6b:	83 c4 10             	add    esp,0x10
+    8c6e:	83 6c 24 20 01       	sub    DWORD PTR [esp+0x20],0x1
+    8c73:	e9 73 ff ff ff       	jmp    8beb <_ZN6Writer12printIntBaseEiii+0xb3>
+    8c78:	90                   	nop
+    8c79:	83 c4 3c             	add    esp,0x3c
+    8c7c:	c3                   	ret    
+    8c7d:	90                   	nop
+
+00008c7e <_ZN10KeyManagerC1Ev>:
+    8c7e:	f3 0f 1e fb          	endbr32 
+    8c82:	8b 44 24 04          	mov    eax,DWORD PTR [esp+0x4]
+    8c86:	c7 80 00 01 00 00 00 	mov    DWORD PTR [eax+0x100],0x0
+    8c8d:	00 00 00 
+    8c90:	8b 44 24 04          	mov    eax,DWORD PTR [esp+0x4]
+    8c94:	c7 80 08 01 00 00 00 	mov    DWORD PTR [eax+0x108],0x0
+    8c9b:	00 00 00 
+    8c9e:	8b 44 24 04          	mov    eax,DWORD PTR [esp+0x4]
+    8ca2:	c6 80 04 01 00 00 00 	mov    BYTE PTR [eax+0x104],0x0
+    8ca9:	90                   	nop
+    8caa:	c3                   	ret    
+    8cab:	90                   	nop
+
+00008cac <_ZN10KeyManager6updateEv>:
+    8cac:	f3 0f 1e fb          	endbr32 
+    8cb0:	83 ec 1c             	sub    esp,0x1c
+    8cb3:	83 ec 0c             	sub    esp,0xc
+    8cb6:	6a 60                	push   0x60
+    8cb8:	e8 96 f8 ff ff       	call   8553 <port_byte_in>
+    8cbd:	83 c4 10             	add    esp,0x10
+    8cc0:	88 44 24 0f          	mov    BYTE PTR [esp+0xf],al
+    8cc4:	80 7c 24 0f 00       	cmp    BYTE PTR [esp+0xf],0x0
+    8cc9:	78 0a                	js     8cd5 <_ZN10KeyManager6updateEv+0x29>
+    8ccb:	0f b6 44 24 0f       	movzx  eax,BYTE PTR [esp+0xf]
+    8cd0:	83 e0 7f             	and    eax,0x7f
+    8cd3:	eb 05                	jmp    8cda <_ZN10KeyManager6updateEv+0x2e>
+    8cd5:	b8 00 00 00 00       	mov    eax,0x0
+    8cda:	88 44 24 0e          	mov    BYTE PTR [esp+0xe],al
+    8cde:	8b 44 24 20          	mov    eax,DWORD PTR [esp+0x20]
+    8ce2:	0f b6 80 04 01 00 00 	movzx  eax,BYTE PTR [eax+0x104]
+    8ce9:	38 44 24 0e          	cmp    BYTE PTR [esp+0xe],al
+    8ced:	74 52                	je     8d41 <_ZN10KeyManager6updateEv+0x95>
+    8cef:	80 7c 24 0e 00       	cmp    BYTE PTR [esp+0xe],0x0
+    8cf4:	74 4b                	je     8d41 <_ZN10KeyManager6updateEv+0x95>
+    8cf6:	8b 44 24 20          	mov    eax,DWORD PTR [esp+0x20]
+    8cfa:	8b 90 00 01 00 00    	mov    edx,DWORD PTR [eax+0x100]
+    8d00:	8b 44 24 20          	mov    eax,DWORD PTR [esp+0x20]
+    8d04:	8b 80 08 01 00 00    	mov    eax,DWORD PTR [eax+0x108]
+    8d0a:	01 d0                	add    eax,edx
+    8d0c:	99                   	cdq    
+    8d0d:	c1 ea 18             	shr    edx,0x18
+    8d10:	01 d0                	add    eax,edx
+    8d12:	0f b6 c0             	movzx  eax,al
+    8d15:	29 d0                	sub    eax,edx
+    8d17:	89 c1                	mov    ecx,eax
+    8d19:	0f b6 44 24 0f       	movzx  eax,BYTE PTR [esp+0xf]
+    8d1e:	83 e0 7f             	and    eax,0x7f
+    8d21:	89 c2                	mov    edx,eax
+    8d23:	8b 44 24 20          	mov    eax,DWORD PTR [esp+0x20]
+    8d27:	88 14 08             	mov    BYTE PTR [eax+ecx*1],dl
+    8d2a:	8b 44 24 20          	mov    eax,DWORD PTR [esp+0x20]
+    8d2e:	8b 80 08 01 00 00    	mov    eax,DWORD PTR [eax+0x108]
+    8d34:	8d 50 01             	lea    edx,[eax+0x1]
+    8d37:	8b 44 24 20          	mov    eax,DWORD PTR [esp+0x20]
+    8d3b:	89 90 08 01 00 00    	mov    DWORD PTR [eax+0x108],edx
+    8d41:	8b 44 24 20          	mov    eax,DWORD PTR [esp+0x20]
+    8d45:	0f b6 54 24 0e       	movzx  edx,BYTE PTR [esp+0xe]
+    8d4a:	88 90 04 01 00 00    	mov    BYTE PTR [eax+0x104],dl
+    8d50:	90                   	nop
+    8d51:	83 c4 1c             	add    esp,0x1c
+    8d54:	c3                   	ret    
+    8d55:	90                   	nop
+
+00008d56 <_ZN10KeyManager11getKeyPressEv>:
+    8d56:	f3 0f 1e fb          	endbr32 
+    8d5a:	8b 44 24 04          	mov    eax,DWORD PTR [esp+0x4]
+    8d5e:	8b 80 08 01 00 00    	mov    eax,DWORD PTR [eax+0x108]
+    8d64:	85 c0                	test   eax,eax
+    8d66:	75 06                	jne    8d6e <_ZN10KeyManager11getKeyPressEv+0x18>
+    8d68:	b8 00 00 00 00       	mov    eax,0x0
+    8d6d:	c3                   	ret    
+    8d6e:	8b 44 24 04          	mov    eax,DWORD PTR [esp+0x4]
+    8d72:	8b 80 08 01 00 00    	mov    eax,DWORD PTR [eax+0x108]
+    8d78:	8d 50 ff             	lea    edx,[eax-0x1]
+    8d7b:	8b 44 24 04          	mov    eax,DWORD PTR [esp+0x4]
+    8d7f:	89 90 08 01 00 00    	mov    DWORD PTR [eax+0x108],edx
+    8d85:	8b 44 24 04          	mov    eax,DWORD PTR [esp+0x4]
+    8d89:	8b 80 00 01 00 00    	mov    eax,DWORD PTR [eax+0x100]
+    8d8f:	8d 48 01             	lea    ecx,[eax+0x1]
+    8d92:	8b 54 24 04          	mov    edx,DWORD PTR [esp+0x4]
+    8d96:	89 8a 00 01 00 00    	mov    DWORD PTR [edx+0x100],ecx
+    8d9c:	99                   	cdq    
+    8d9d:	c1 ea 18             	shr    edx,0x18
+    8da0:	01 d0                	add    eax,edx
+    8da2:	0f b6 c0             	movzx  eax,al
+    8da5:	29 d0                	sub    eax,edx
+    8da7:	89 c2                	mov    edx,eax
+    8da9:	8b 44 24 04          	mov    eax,DWORD PTR [esp+0x4]
+    8dad:	0f b6 04 10          	movzx  eax,BYTE PTR [eax+edx*1]
+    8db1:	0f be c0             	movsx  eax,al
+    8db4:	0f b6 80 00 a0 00 00 	movzx  eax,BYTE PTR [eax+0xa000]
+    8dbb:	c3                   	ret    
+
+00008dbc <_Z14print_vbe_infoR18vbe_info_structureR6Writer>:
+    8dbc:	f3 0f 1e fb          	endbr32 
+    8dc0:	83 ec 1c             	sub    esp,0x1c
+    8dc3:	83 ec 08             	sub    esp,0x8
+    8dc6:	68 83 b0 00 00       	push   0xb083
+    8dcb:	ff 74 24 30          	push   DWORD PTR [esp+0x30]
+    8dcf:	e8 78 fa ff ff       	call   884c <_ZN6WriterlsEPKc>
+    8dd4:	83 c4 10             	add    esp,0x10
+    8dd7:	8b 54 24 20          	mov    edx,DWORD PTR [esp+0x20]
+    8ddb:	83 ec 08             	sub    esp,0x8
+    8dde:	52                   	push   edx
+    8ddf:	50                   	push   eax
+    8de0:	e8 45 fa ff ff       	call   882a <_ZN6WriterlsEPc>
+    8de5:	83 c4 10             	add    esp,0x10
+    8de8:	83 ec 08             	sub    esp,0x8
+    8deb:	6a 0a                	push   0xa
+    8ded:	50                   	push   eax
+    8dee:	e8 0b fa ff ff       	call   87fe <_ZN6WriterlsEc>
+    8df3:	83 c4 10             	add    esp,0x10
+    8df6:	83 ec 08             	sub    esp,0x8
+    8df9:	68 8f b0 00 00       	push   0xb08f
+    8dfe:	ff 74 24 30          	push   DWORD PTR [esp+0x30]
+    8e02:	e8 45 fa ff ff       	call   884c <_ZN6WriterlsEPKc>
+    8e07:	83 c4 10             	add    esp,0x10
+    8e0a:	8b 54 24 20          	mov    edx,DWORD PTR [esp+0x20]
+    8e0e:	0f b7 52 04          	movzx  edx,WORD PTR [edx+0x4]
+    8e12:	66 c1 ea 08          	shr    dx,0x8
+    8e16:	0f b7 d2             	movzx  edx,dx
+    8e19:	83 ec 08             	sub    esp,0x8
+    8e1c:	52                   	push   edx
+    8e1d:	50                   	push   eax
+    8e1e:	e8 b9 f9 ff ff       	call   87dc <_ZN6WriterlsEi>
+    8e23:	83 c4 10             	add    esp,0x10
+    8e26:	83 ec 08             	sub    esp,0x8
+    8e29:	68 99 b0 00 00       	push   0xb099
+    8e2e:	50                   	push   eax
+    8e2f:	e8 18 fa ff ff       	call   884c <_ZN6WriterlsEPKc>
+    8e34:	83 c4 10             	add    esp,0x10
+    8e37:	8b 54 24 20          	mov    edx,DWORD PTR [esp+0x20]
+    8e3b:	0f b7 52 04          	movzx  edx,WORD PTR [edx+0x4]
+    8e3f:	0f b7 d2             	movzx  edx,dx
+    8e42:	0f b6 d2             	movzx  edx,dl
+    8e45:	83 ec 08             	sub    esp,0x8
+    8e48:	52                   	push   edx
+    8e49:	50                   	push   eax
+    8e4a:	e8 8d f9 ff ff       	call   87dc <_ZN6WriterlsEi>
+    8e4f:	83 c4 10             	add    esp,0x10
+    8e52:	83 ec 08             	sub    esp,0x8
+    8e55:	6a 0a                	push   0xa
+    8e57:	50                   	push   eax
+    8e58:	e8 a1 f9 ff ff       	call   87fe <_ZN6WriterlsEc>
+    8e5d:	83 c4 10             	add    esp,0x10
+    8e60:	83 ec 08             	sub    esp,0x8
+    8e63:	68 9b b0 00 00       	push   0xb09b
+    8e68:	ff 74 24 30          	push   DWORD PTR [esp+0x30]
+    8e6c:	e8 db f9 ff ff       	call   884c <_ZN6WriterlsEPKc>
+    8e71:	83 c4 10             	add    esp,0x10
+    8e74:	8b 54 24 20          	mov    edx,DWORD PTR [esp+0x20]
+    8e78:	0f b7 52 12          	movzx  edx,WORD PTR [edx+0x12]
+    8e7c:	0f b7 d2             	movzx  edx,dx
+    8e7f:	83 ec 08             	sub    esp,0x8
+    8e82:	52                   	push   edx
+    8e83:	50                   	push   eax
+    8e84:	e8 53 f9 ff ff       	call   87dc <_ZN6WriterlsEi>
+    8e89:	83 c4 10             	add    esp,0x10
+    8e8c:	83 ec 08             	sub    esp,0x8
+    8e8f:	68 af b0 00 00       	push   0xb0af
+    8e94:	50                   	push   eax
+    8e95:	e8 b2 f9 ff ff       	call   884c <_ZN6WriterlsEPKc>
+    8e9a:	83 c4 10             	add    esp,0x10
+    8e9d:	83 ec 08             	sub    esp,0x8
+    8ea0:	6a 0a                	push   0xa
+    8ea2:	50                   	push   eax
+    8ea3:	e8 56 f9 ff ff       	call   87fe <_ZN6WriterlsEc>
+    8ea8:	83 c4 10             	add    esp,0x10
+    8eab:	83 ec 08             	sub    esp,0x8
+    8eae:	68 b2 b0 00 00       	push   0xb0b2
+    8eb3:	ff 74 24 30          	push   DWORD PTR [esp+0x30]
+    8eb7:	e8 90 f9 ff ff       	call   884c <_ZN6WriterlsEPKc>
+    8ebc:	83 c4 10             	add    esp,0x10
+    8ebf:	8b 54 24 20          	mov    edx,DWORD PTR [esp+0x20]
+    8ec3:	0f b7 52 14          	movzx  edx,WORD PTR [edx+0x14]
+    8ec7:	0f b7 d2             	movzx  edx,dx
+    8eca:	83 ec 08             	sub    esp,0x8
+    8ecd:	52                   	push   edx
+    8ece:	50                   	push   eax
+    8ecf:	e8 08 f9 ff ff       	call   87dc <_ZN6WriterlsEi>
+    8ed4:	83 c4 10             	add    esp,0x10
+    8ed7:	83 ec 08             	sub    esp,0x8
+    8eda:	6a 0a                	push   0xa
+    8edc:	50                   	push   eax
+    8edd:	e8 1c f9 ff ff       	call   87fe <_ZN6WriterlsEc>
+    8ee2:	83 c4 10             	add    esp,0x10
+    8ee5:	8b 44 24 20          	mov    eax,DWORD PTR [esp+0x20]
+    8ee9:	8b 40 16             	mov    eax,DWORD PTR [eax+0x16]
+    8eec:	c1 e8 10             	shr    eax,0x10
+    8eef:	c1 e0 04             	shl    eax,0x4
+    8ef2:	89 c2                	mov    edx,eax
+    8ef4:	8b 44 24 20          	mov    eax,DWORD PTR [esp+0x20]
+    8ef8:	8b 40 16             	mov    eax,DWORD PTR [eax+0x16]
+    8efb:	0f b7 c0             	movzx  eax,ax
+    8efe:	01 c2                	add    edx,eax
+    8f00:	8b 44 24 20          	mov    eax,DWORD PTR [esp+0x20]
+    8f04:	89 50 16             	mov    DWORD PTR [eax+0x16],edx
+    8f07:	8b 44 24 20          	mov    eax,DWORD PTR [esp+0x20]
+    8f0b:	8b 40 1a             	mov    eax,DWORD PTR [eax+0x1a]
+    8f0e:	c1 e8 10             	shr    eax,0x10
+    8f11:	c1 e0 04             	shl    eax,0x4
+    8f14:	89 c2                	mov    edx,eax
+    8f16:	8b 44 24 20          	mov    eax,DWORD PTR [esp+0x20]
+    8f1a:	8b 40 1a             	mov    eax,DWORD PTR [eax+0x1a]
+    8f1d:	0f b7 c0             	movzx  eax,ax
+    8f20:	01 c2                	add    edx,eax
+    8f22:	8b 44 24 20          	mov    eax,DWORD PTR [esp+0x20]
+    8f26:	89 50 1a             	mov    DWORD PTR [eax+0x1a],edx
+    8f29:	8b 44 24 20          	mov    eax,DWORD PTR [esp+0x20]
+    8f2d:	8b 40 1e             	mov    eax,DWORD PTR [eax+0x1e]
+    8f30:	c1 e8 10             	shr    eax,0x10
+    8f33:	c1 e0 04             	shl    eax,0x4
+    8f36:	89 c2                	mov    edx,eax
+    8f38:	8b 44 24 20          	mov    eax,DWORD PTR [esp+0x20]
+    8f3c:	8b 40 1e             	mov    eax,DWORD PTR [eax+0x1e]
+    8f3f:	0f b7 c0             	movzx  eax,ax
+    8f42:	01 c2                	add    edx,eax
+    8f44:	8b 44 24 20          	mov    eax,DWORD PTR [esp+0x20]
+    8f48:	89 50 1e             	mov    DWORD PTR [eax+0x1e],edx
+    8f4b:	8b 44 24 20          	mov    eax,DWORD PTR [esp+0x20]
+    8f4f:	8b 40 0e             	mov    eax,DWORD PTR [eax+0xe]
+    8f52:	c1 e8 10             	shr    eax,0x10
+    8f55:	c1 e0 04             	shl    eax,0x4
+    8f58:	89 c2                	mov    edx,eax
+    8f5a:	8b 44 24 20          	mov    eax,DWORD PTR [esp+0x20]
+    8f5e:	8b 40 0e             	mov    eax,DWORD PTR [eax+0xe]
+    8f61:	0f b7 c0             	movzx  eax,ax
+    8f64:	01 c2                	add    edx,eax
+    8f66:	8b 44 24 20          	mov    eax,DWORD PTR [esp+0x20]
+    8f6a:	89 50 0e             	mov    DWORD PTR [eax+0xe],edx
+    8f6d:	8b 44 24 20          	mov    eax,DWORD PTR [esp+0x20]
+    8f71:	8b 40 16             	mov    eax,DWORD PTR [eax+0x16]
+    8f74:	85 c0                	test   eax,eax
+    8f76:	74 36                	je     8fae <_Z14print_vbe_infoR18vbe_info_structureR6Writer+0x1f2>
+    8f78:	83 ec 08             	sub    esp,0x8
+    8f7b:	68 c6 b0 00 00       	push   0xb0c6
+    8f80:	ff 74 24 30          	push   DWORD PTR [esp+0x30]
+    8f84:	e8 c3 f8 ff ff       	call   884c <_ZN6WriterlsEPKc>
+    8f89:	83 c4 10             	add    esp,0x10
+    8f8c:	8b 54 24 20          	mov    edx,DWORD PTR [esp+0x20]
+    8f90:	8b 52 16             	mov    edx,DWORD PTR [edx+0x16]
+    8f93:	83 ec 08             	sub    esp,0x8
+    8f96:	52                   	push   edx
+    8f97:	50                   	push   eax
+    8f98:	e8 8d f8 ff ff       	call   882a <_ZN6WriterlsEPc>
+    8f9d:	83 c4 10             	add    esp,0x10
+    8fa0:	83 ec 08             	sub    esp,0x8
+    8fa3:	6a 0a                	push   0xa
+    8fa5:	50                   	push   eax
+    8fa6:	e8 53 f8 ff ff       	call   87fe <_ZN6WriterlsEc>
+    8fab:	83 c4 10             	add    esp,0x10
+    8fae:	8b 44 24 20          	mov    eax,DWORD PTR [esp+0x20]
+    8fb2:	8b 40 1a             	mov    eax,DWORD PTR [eax+0x1a]
+    8fb5:	85 c0                	test   eax,eax
+    8fb7:	74 36                	je     8fef <_Z14print_vbe_infoR18vbe_info_structureR6Writer+0x233>
+    8fb9:	83 ec 08             	sub    esp,0x8
+    8fbc:	68 cf b0 00 00       	push   0xb0cf
+    8fc1:	ff 74 24 30          	push   DWORD PTR [esp+0x30]
+    8fc5:	e8 82 f8 ff ff       	call   884c <_ZN6WriterlsEPKc>
+    8fca:	83 c4 10             	add    esp,0x10
+    8fcd:	8b 54 24 20          	mov    edx,DWORD PTR [esp+0x20]
+    8fd1:	8b 52 1a             	mov    edx,DWORD PTR [edx+0x1a]
+    8fd4:	83 ec 08             	sub    esp,0x8
+    8fd7:	52                   	push   edx
+    8fd8:	50                   	push   eax
+    8fd9:	e8 4c f8 ff ff       	call   882a <_ZN6WriterlsEPc>
+    8fde:	83 c4 10             	add    esp,0x10
+    8fe1:	83 ec 08             	sub    esp,0x8
+    8fe4:	6a 0a                	push   0xa
+    8fe6:	50                   	push   eax
+    8fe7:	e8 12 f8 ff ff       	call   87fe <_ZN6WriterlsEc>
+    8fec:	83 c4 10             	add    esp,0x10
+    8fef:	8b 44 24 20          	mov    eax,DWORD PTR [esp+0x20]
+    8ff3:	8b 40 1e             	mov    eax,DWORD PTR [eax+0x1e]
+    8ff6:	85 c0                	test   eax,eax
+    8ff8:	74 36                	je     9030 <_Z14print_vbe_infoR18vbe_info_structureR6Writer+0x274>
+    8ffa:	83 ec 08             	sub    esp,0x8
+    8ffd:	68 de b0 00 00       	push   0xb0de
+    9002:	ff 74 24 30          	push   DWORD PTR [esp+0x30]
+    9006:	e8 41 f8 ff ff       	call   884c <_ZN6WriterlsEPKc>
+    900b:	83 c4 10             	add    esp,0x10
+    900e:	8b 54 24 20          	mov    edx,DWORD PTR [esp+0x20]
+    9012:	8b 52 1e             	mov    edx,DWORD PTR [edx+0x1e]
+    9015:	83 ec 08             	sub    esp,0x8
+    9018:	52                   	push   edx
+    9019:	50                   	push   eax
+    901a:	e8 0b f8 ff ff       	call   882a <_ZN6WriterlsEPc>
+    901f:	83 c4 10             	add    esp,0x10
+    9022:	83 ec 08             	sub    esp,0x8
+    9025:	6a 0a                	push   0xa
+    9027:	50                   	push   eax
+    9028:	e8 d1 f7 ff ff       	call   87fe <_ZN6WriterlsEc>
+    902d:	83 c4 10             	add    esp,0x10
+    9030:	8b 44 24 20          	mov    eax,DWORD PTR [esp+0x20]
+    9034:	8b 40 0e             	mov    eax,DWORD PTR [eax+0xe]
+    9037:	a3 00 e0 00 00       	mov    ds:0xe000,eax
+    903c:	83 ec 08             	sub    esp,0x8
+    903f:	68 f1 b0 00 00       	push   0xb0f1
+    9044:	ff 74 24 30          	push   DWORD PTR [esp+0x30]
+    9048:	e8 ff f7 ff ff       	call   884c <_ZN6WriterlsEPKc>
+    904d:	83 c4 10             	add    esp,0x10
+    9050:	c7 44 24 0c 00 00 00 	mov    DWORD PTR [esp+0xc],0x0
+    9057:	00 
+    9058:	8b 15 00 e0 00 00    	mov    edx,DWORD PTR ds:0xe000
+    905e:	8b 44 24 0c          	mov    eax,DWORD PTR [esp+0xc]
+    9062:	01 c0                	add    eax,eax
+    9064:	01 d0                	add    eax,edx
+    9066:	0f b7 00             	movzx  eax,WORD PTR [eax]
+    9069:	66 83 f8 ff          	cmp    ax,0xffff
+    906d:	74 40                	je     90af <_Z14print_vbe_infoR18vbe_info_structureR6Writer+0x2f3>
+    906f:	8b 15 00 e0 00 00    	mov    edx,DWORD PTR ds:0xe000
+    9075:	8b 44 24 0c          	mov    eax,DWORD PTR [esp+0xc]
+    9079:	01 c0                	add    eax,eax
+    907b:	01 d0                	add    eax,edx
+    907d:	0f b7 00             	movzx  eax,WORD PTR [eax]
+    9080:	0f b7 c0             	movzx  eax,ax
+    9083:	6a 04                	push   0x4
+    9085:	6a 10                	push   0x10
+    9087:	50                   	push   eax
+    9088:	ff 74 24 30          	push   DWORD PTR [esp+0x30]
+    908c:	e8 a7 fa ff ff       	call   8b38 <_ZN6Writer12printIntBaseEiii>
+    9091:	83 c4 10             	add    esp,0x10
+    9094:	83 ec 08             	sub    esp,0x8
+    9097:	68 fd b0 00 00       	push   0xb0fd
+    909c:	ff 74 24 30          	push   DWORD PTR [esp+0x30]
+    90a0:	e8 a7 f7 ff ff       	call   884c <_ZN6WriterlsEPKc>
+    90a5:	83 c4 10             	add    esp,0x10
+    90a8:	83 44 24 0c 01       	add    DWORD PTR [esp+0xc],0x1
+    90ad:	eb a9                	jmp    9058 <_Z14print_vbe_infoR18vbe_info_structureR6Writer+0x29c>
+    90af:	83 ec 08             	sub    esp,0x8
+    90b2:	6a 0a                	push   0xa
+    90b4:	ff 74 24 30          	push   DWORD PTR [esp+0x30]
+    90b8:	e8 41 f7 ff ff       	call   87fe <_ZN6WriterlsEc>
+    90bd:	83 c4 10             	add    esp,0x10
+    90c0:	90                   	nop
+    90c1:	83 c4 1c             	add    esp,0x1c
+    90c4:	c3                   	ret    
+
+000090c5 <_Z6equalsPcS_>:
+    90c5:	f3 0f 1e fb          	endbr32 
+    90c9:	83 ec 10             	sub    esp,0x10
+    90cc:	c7 44 24 0c 00 00 00 	mov    DWORD PTR [esp+0xc],0x0
+    90d3:	00 
+    90d4:	8b 54 24 0c          	mov    edx,DWORD PTR [esp+0xc]
+    90d8:	8b 44 24 14          	mov    eax,DWORD PTR [esp+0x14]
+    90dc:	01 d0                	add    eax,edx
+    90de:	0f b6 10             	movzx  edx,BYTE PTR [eax]
+    90e1:	8b 4c 24 0c          	mov    ecx,DWORD PTR [esp+0xc]
+    90e5:	8b 44 24 18          	mov    eax,DWORD PTR [esp+0x18]
+    90e9:	01 c8                	add    eax,ecx
+    90eb:	0f b6 00             	movzx  eax,BYTE PTR [eax]
+    90ee:	38 c2                	cmp    dl,al
+    90f0:	75 1f                	jne    9111 <_Z6equalsPcS_+0x4c>
+    90f2:	8b 54 24 0c          	mov    edx,DWORD PTR [esp+0xc]
+    90f6:	8b 44 24 14          	mov    eax,DWORD PTR [esp+0x14]
+    90fa:	01 d0                	add    eax,edx
+    90fc:	0f b6 00             	movzx  eax,BYTE PTR [eax]
+    90ff:	84 c0                	test   al,al
+    9101:	75 07                	jne    910a <_Z6equalsPcS_+0x45>
+    9103:	b8 01 00 00 00       	mov    eax,0x1
+    9108:	eb 0c                	jmp    9116 <_Z6equalsPcS_+0x51>
+    910a:	83 44 24 0c 01       	add    DWORD PTR [esp+0xc],0x1
+    910f:	eb c3                	jmp    90d4 <_Z6equalsPcS_+0xf>
+    9111:	b8 00 00 00 00       	mov    eax,0x0
+    9116:	83 c4 10             	add    esp,0x10
+    9119:	c3                   	ret    
+
+0000911a <_Z13parse_commandPcR6Writer>:
+    911a:	f3 0f 1e fb          	endbr32 
+    911e:	57                   	push   edi
+    911f:	56                   	push   esi
+    9120:	53                   	push   ebx
+    9121:	81 ec 00 02 00 00    	sub    esp,0x200
+    9127:	68 ff b0 00 00       	push   0xb0ff
+    912c:	ff b4 24 14 02 00 00 	push   DWORD PTR [esp+0x214]
+    9133:	e8 8d ff ff ff       	call   90c5 <_Z6equalsPcS_>
+    9138:	83 c4 08             	add    esp,0x8
+    913b:	84 c0                	test   al,al
+    913d:	74 2c                	je     916b <_Z13parse_commandPcR6Writer+0x51>
+    913f:	83 ec 08             	sub    esp,0x8
+    9142:	68 10 b1 00 00       	push   0xb110
+    9147:	ff b4 24 20 02 00 00 	push   DWORD PTR [esp+0x220]
+    914e:	e8 f9 f6 ff ff       	call   884c <_ZN6WriterlsEPKc>
+    9153:	83 c4 10             	add    esp,0x10
+    9156:	83 ec 08             	sub    esp,0x8
+    9159:	6a 0a                	push   0xa
+    915b:	50                   	push   eax
+    915c:	e8 9d f6 ff ff       	call   87fe <_ZN6WriterlsEc>
+    9161:	83 c4 10             	add    esp,0x10
+    9164:	b8 01 00 00 00       	mov    eax,0x1
+    9169:	eb 54                	jmp    91bf <_Z13parse_commandPcR6Writer+0xa5>
+    916b:	83 ec 08             	sub    esp,0x8
+    916e:	68 19 b1 00 00       	push   0xb119
+    9173:	ff b4 24 1c 02 00 00 	push   DWORD PTR [esp+0x21c]
+    917a:	e8 46 ff ff ff       	call   90c5 <_Z6equalsPcS_>
+    917f:	83 c4 10             	add    esp,0x10
+    9182:	84 c0                	test   al,al
+    9184:	74 34                	je     91ba <_Z13parse_commandPcR6Writer+0xa0>
+    9186:	ba 00 05 00 00       	mov    edx,0x500
+    918b:	89 e0                	mov    eax,esp
+    918d:	89 d3                	mov    ebx,edx
+    918f:	ba 80 00 00 00       	mov    edx,0x80
+    9194:	89 c7                	mov    edi,eax
+    9196:	89 de                	mov    esi,ebx
+    9198:	89 d1                	mov    ecx,edx
+    919a:	f3 a5                	rep movs DWORD PTR es:[edi],DWORD PTR ds:[esi]
+    919c:	83 ec 08             	sub    esp,0x8
+    919f:	ff b4 24 1c 02 00 00 	push   DWORD PTR [esp+0x21c]
+    91a6:	8d 44 24 0c          	lea    eax,[esp+0xc]
+    91aa:	50                   	push   eax
+    91ab:	e8 0c fc ff ff       	call   8dbc <_Z14print_vbe_infoR18vbe_info_structureR6Writer>
+    91b0:	83 c4 10             	add    esp,0x10
+    91b3:	b8 01 00 00 00       	mov    eax,0x1
+    91b8:	eb 05                	jmp    91bf <_Z13parse_commandPcR6Writer+0xa5>
+    91ba:	b8 00 00 00 00       	mov    eax,0x0
+    91bf:	81 c4 00 02 00 00    	add    esp,0x200
+    91c5:	5b                   	pop    ebx
+    91c6:	5e                   	pop    esi
+    91c7:	5f                   	pop    edi
+    91c8:	c3                   	ret    
+
+000091c9 <__CTOR_LIST__>:
+    91c9:	ff                   	(bad)  
+    91ca:	ff                   	(bad)  
+    91cb:	ff                   	(bad)  
+    91cc:	ff 00                	inc    DWORD PTR [eax]
+    91ce:	00 00                	add    BYTE PTR [eax],al
+	...
+
+000091d1 <__DTOR_LIST__>:
+    91d1:	ff                   	(bad)  
+    91d2:	ff                   	(bad)  
+    91d3:	ff                   	(bad)  
+    91d4:	ff 00                	inc    DWORD PTR [eax]
+    91d6:	00 00                	add    BYTE PTR [eax],al
+	...

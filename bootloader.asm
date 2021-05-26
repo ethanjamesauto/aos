@@ -1,7 +1,7 @@
 bits 16
 org 0x7c00
 
-%define num_sectors 30
+%define num_sectors 32
 %include "macros.asm"
 
 jmp boot

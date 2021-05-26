@@ -1,6 +1,6 @@
 #include "writer.h"
 
-extern "C" void start();
+extern "C" void start() asm ("start");
 void new_line(Writer& writer);
 int fib(int n);
 void print_cmos(Writer& writer);

@@ -63,5 +63,9 @@ bool parse_command(char* command, Writer& writer) {
         print_vbe_info(vesa, writer);
         return true;
     }
+	if (equals(command, "hello")) {
+		writer << "Hello! How are you?" << endl;
+		return true;
+	}
     return false;
 }

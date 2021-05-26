@@ -50,14 +50,12 @@ jmp $
 
 init:
 
-;;;;;;DEMO CODE BELOW
+;load VESA info to es:di (0:500)
 mov ax, 0x4f00
 mov bx, 0
 mov es, bx
 mov di, 0x500
 int 0x10
-
-;;;;;;DEMO CODE ABOVE
 
 mov ax, 0x2401
 int 0x15 ; enable A20 bit

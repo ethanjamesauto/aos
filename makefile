@@ -17,7 +17,7 @@ os-image.img: boot_sect.bin entry_point.o kernel.o memory.o memory_manager.o wri
 	objcopy -O binary os_built.o kernel.bin
 #	copy /b boot_sect.bin+kernel.bin+padding os-image.img
 	cat boot_sect.bin kernel.bin > os-image.img
-	dd if=/dev/null of=os-image.img bs=1 count=0 seek=1048575
+	dd if=/dev/null of=os-image.img bs=1 count=0 seek=1474560
 
 boot_sect.bin: bootloader.asm macros.asm
 	nasm -o boot_sect.bin bootloader.asm

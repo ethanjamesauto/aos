@@ -1,4 +1,5 @@
-CC = g++
+TOOLCHAIN-PREFIX = i386-elf-
+CC = $(TOOLCHAIN-PREFIX)g++
 ARGS = -fomit-frame-pointer -fno-pie -m32 -ffreestanding -c
 
 all: os-image.img
@@ -11,10 +12,14 @@ clean:
 #	del *.dump *.o *.bin *.tmp *.img
 
 os-image.img: boot_sect.bin entry_point.o kernel.o memory.o memory_manager.o writer.o key_manager.o parse_command.o
-	ld -m i386pe -o os_built.o -Ttext 7e00 entry_point.o kernel.o memory.o memory_manager.o writer.o key_manager.o parse_command.o
+#for msys2 on Windows or linux
+#	$(TOOLCHAIN-PREFIX)ld -m i386pe -o os_built.o -Ttext 7e00 entry_point.o kernel.o memory.o memory_manager.o writer.o key_manager.o parse_command.o
+#for macOS
+	$(TOOLCHAIN-PREFIX)ld -o os_built.o -Ttext 7e00 entry_point.o kernel.o memory.o memory_manager.o writer.o key_manager.o parse_command.o
+
 #	ld -T NUL -m i386pe -o os_built.o -Ttext 7e00 entry_point.o kernel.o memory.o memory_manager.o writer.o key_manager.o parse_command.o
-	objdump -M intel -d os_built.o > os_built.dump
-	objcopy -O binary os_built.o kernel.bin
+	$(TOOLCHAIN-PREFIX)objdump -M intel -d os_built.o > os_built.dump
+	$(TOOLCHAIN-PREFIX)objcopy -O binary os_built.o kernel.bin
 #	copy /b boot_sect.bin+kernel.bin+padding os-image.img
 	cat boot_sect.bin kernel.bin > os-image.img
 	dd if=/dev/null of=os-image.img bs=1 count=0 seek=1474560

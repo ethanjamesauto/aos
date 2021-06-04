@@ -4,8 +4,8 @@ ARGS = -fomit-frame-pointer -fno-pie -m32 -ffreestanding -c
 TOOLCHAIN-PREFIX = 
 
 #for macOS
-#LDFLAGS = -Ttext 7e00
-#TOOLCHAIN-PREFIX = i386-elf-
+LDFLAGS = -Ttext 7e00
+TOOLCHAIN-PREFIX = i386-elf-
 
 all: os-image.img
 
@@ -13,12 +13,12 @@ run: all
 	qemu-system-x86_64 -drive format=raw,file=os-image.img
 
 clean:
-	rm -f *.dump *.o *.bin *.tmp *.img
-#	del *.dump *.o *.bin *.tmp *.img
+	rm -f *.dump.asm *.o *.bin *.tmp *.img
+#	del *.dump.asm *.o *.bin *.tmp *.img
 
 os-image.img: boot_sect.bin entry_point.o kernel.o memory.o memory_manager.o writer.o key_manager.o parse_command.o
 	$(TOOLCHAIN-PREFIX)ld $(LDFLAGS) -o os_built.o entry_point.o kernel.o memory.o memory_manager.o writer.o key_manager.o parse_command.o
-	$(TOOLCHAIN-PREFIX)objdump -M intel -d os_built.o > os_built.dump
+	$(TOOLCHAIN-PREFIX)objdump -M intel -d os_built.o > os_built.dump.asm
 	$(TOOLCHAIN-PREFIX)objcopy -O binary os_built.o kernel.bin
 #	copy /b boot_sect.bin+kernel.bin+padding os-image.img
 	cat boot_sect.bin kernel.bin > os-image.img

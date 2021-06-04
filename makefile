@@ -18,7 +18,6 @@ clean:
 
 os-image.img: boot_sect.bin entry_point.o kernel.o memory.o memory_manager.o writer.o key_manager.o parse_command.o
 	$(TOOLCHAIN-PREFIX)ld $(LDFLAGS) -o os_built.o entry_point.o kernel.o memory.o memory_manager.o writer.o key_manager.o parse_command.o
-#	ld -T NUL -m i386pe -o os_built.o -Ttext 7e00 entry_point.o kernel.o memory.o memory_manager.o writer.o key_manager.o parse_command.o
 	$(TOOLCHAIN-PREFIX)objdump -M intel -d os_built.o > os_built.dump
 	$(TOOLCHAIN-PREFIX)objcopy -O binary os_built.o kernel.bin
 #	copy /b boot_sect.bin+kernel.bin+padding os-image.img

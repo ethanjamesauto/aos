@@ -1,13 +1,11 @@
-TOOLCHAIN-PREFIX = 
-CC = $(TOOLCHAIN-PREFIX)g++
+CC = g++
 LDFLAGS = -Ttext 7e00 -m i386pe
+ARGS = -fomit-frame-pointer -fno-pie -m32 -ffreestanding -c
+TOOLCHAIN-PREFIX = 
 
 #for macOS
 #LDFLAGS = -Ttext 7e00
 #TOOLCHAIN-PREFIX = i386-elf-
-
-
-ARGS = -fomit-frame-pointer -fno-pie -m32 -ffreestanding -c
 
 all: os-image.img
 
@@ -39,21 +37,21 @@ memory.o: memory.asm memory_config.asm
 #	objdump -M intel -D memory.o > memory.dump
 	
 memory_manager.o: memory_manager.cpp memory_manager.h
-	$(CC) $(ARGS) memory_manager.cpp -o memory_manager.o
+	$(TOOLCHAIN-PREFIX)$(CC) $(ARGS) memory_manager.cpp -o memory_manager.o
 #	objdump -M intel -D memory_manager.o > memory_manager.dump
 
 kernel.o: kernel.cpp kernel.h writer.h ioport.h memory_manager.h parse_command.h
-	$(CC) $(ARGS) kernel.cpp -o kernel.o
+	$(TOOLCHAIN-PREFIX)$(CC) $(ARGS) kernel.cpp -o kernel.o
 #	objdump -M intel -D kernel.o > kernel.dump
 
 writer.o: writer.cpp writer.h ioport.h
-	$(CC) $(ARGS) writer.cpp -o writer.o
+	$(TOOLCHAIN-PREFIX)$(CC) $(ARGS) writer.cpp -o writer.o
 #	objdump -M intel -D writer.o > writer.dump
 	
 key_manager.o: key_manager.cpp key_manager.h ioport.h
-	$(CC) $(ARGS) key_manager.cpp -o key_manager.o
+	$(TOOLCHAIN-PREFIX)$(CC) $(ARGS) key_manager.cpp -o key_manager.o
 #	objdump -M intel -D key_manager.o > key_manager.dump
 
 parse_command.o: parse_command.cpp parse_command.h writer.h
-	$(CC) $(ARGS) parse_command.cpp -o parse_command.o
+	$(TOOLCHAIN-PREFIX)$(CC) $(ARGS) parse_command.cpp -o parse_command.o
 #	objdump -M intel -D parse_command.o > parse_command.dump

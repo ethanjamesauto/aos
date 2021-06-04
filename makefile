@@ -35,7 +35,7 @@ entry_point.o: entry_point.asm memory_config.asm
 memory.o: memory.asm memory_config.asm
 	nasm memory.asm -f elf32 -o memory.o
 #	objdump -M intel -D memory.o > memory.dump
-	
+
 memory_manager.o: memory_manager.cpp memory_manager.h
 	$(TOOLCHAIN-PREFIX)$(CC) $(ARGS) memory_manager.cpp -o memory_manager.o
 #	objdump -M intel -D memory_manager.o > memory_manager.dump

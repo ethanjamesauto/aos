@@ -4,8 +4,8 @@ ARGS = -fomit-frame-pointer -fno-pie -m32 -ffreestanding -c
 TOOLCHAIN-PREFIX = 
 
 #for macOS
-LDFLAGS = -Ttext 7e00
-TOOLCHAIN-PREFIX = i386-elf-
+#LDFLAGS = -Ttext 7e00
+#TOOLCHAIN-PREFIX = i386-elf-
 
 all: os-image.img
 

@@ -57,15 +57,16 @@ bool parse_command(char* command, Writer& writer) {
     if (equals(command, "ethan is awesome")) {
         writer << "he is!!!" << endl;
         return true;
-    }
-    if (equals(command, "vesainfo")) {
+    } else if (equals(command, "vesainfo")) {
         vbe_info_structure vesa = *(vbe_info_structure*)0x500;
         print_vbe_info(vesa, writer);
         return true;
+    } else if (equals(command, "hello")) {
+        writer << "Hello! How are you?" << endl;
+        return true;
+    } else if (equals(command, "clear")) {
+        writer.clearScreen();
+        return true;
     }
-	if (equals(command, "hello")) {
-		writer << "Hello! How are you?" << endl;
-		return true;
-	}
     return false;
 }

@@ -1,6 +1,6 @@
 CC = g++
-LDFLAGS = -Ttext 7e00 -m i386pe
-ARGS = -fomit-frame-pointer -fno-pie -m32 -ffreestanding -c
+LDFLAGS = -T os.ld -m i386pe
+ARGS = -fomit-frame-pointer -fno-pie -m32 -ffreestanding -c -g
 TOOLCHAIN-PREFIX = 
 
 #for macOS
@@ -12,14 +12,17 @@ all: os-image.img
 run: all
 	qemu-system-x86_64 -drive format=raw,file=os-image.img
 
+debug: all
+	qemu-system-x86_64 -s -S -drive format=raw,file=os-image.img
+
 clean:
 	rm -f *.dump.asm *.o *.bin *.tmp *.img
 #	del *.dump.asm *.o *.bin *.tmp *.img
 
 os-image.img: boot_sect.bin entry_point.o kernel.o memory.o memory_manager.o writer.o key_manager.o parse_command.o
-	$(TOOLCHAIN-PREFIX)ld $(LDFLAGS) -o os_built.o entry_point.o kernel.o memory.o memory_manager.o writer.o key_manager.o parse_command.o
-	$(TOOLCHAIN-PREFIX)objdump -M intel -d os_built.o > os_built.dump.asm
-	$(TOOLCHAIN-PREFIX)objcopy -O binary os_built.o kernel.bin
+	$(TOOLCHAIN-PREFIX)ld $(LDFLAGS) -o os-built.o entry_point.o kernel.o memory.o memory_manager.o writer.o key_manager.o parse_command.o
+	$(TOOLCHAIN-PREFIX)objdump -M intel -d os-built.o > os-built.dump.asm
+	$(TOOLCHAIN-PREFIX)objcopy -O binary os-built.o kernel.bin
 	cat boot_sect.bin kernel.bin > os-image.img
 	dd if=/dev/null of=os-image.img bs=1 count=0 seek=1474560
 
@@ -27,11 +30,11 @@ boot_sect.bin: bootloader.asm macros.asm
 	nasm -o boot_sect.bin bootloader.asm
 
 entry_point.o: entry_point.asm memory_config.asm
-	nasm entry_point.asm -f elf32 -o entry_point.o
+	nasm -g entry_point.asm -f elf32 -o entry_point.o
 #	objdump -M intel -D entry_point.o > entry_point.dump
 
 memory.o: memory.asm memory_config.asm
-	nasm memory.asm -f elf32 -o memory.o
+	nasm -g memory.asm -f elf32 -o memory.o
 #	objdump -M intel -D memory.o > memory.dump
 
 memory_manager.o: memory_manager.cpp memory_manager.h

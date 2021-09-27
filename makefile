@@ -9,6 +9,10 @@ DEPFLAGS = -MT $@ -MD -MP -MF $(DEPDIR)/$*.Td
 
 TOOLCHAIN-PREFIX := 
 
+#for macOS
+#LDFLAGS := -T os.ld
+#TOOLCHAIN-PREFIX := i386-elf-
+
 BIN:= os-image.img
 
 SRCS := \
@@ -30,10 +34,6 @@ COMPILE.cc = $(TOOLCHAIN-PREFIX)$(CXX) $(DEPFLAGS) $(CXXFLAGS) -c -o $@
 
 PRECOMPILE =
 POSTCOMPILE = mv -f $(DEPDIR)/$*.Td $(DEPDIR)/$*.d
-
-#for macOS
-#LDFLAGS = -Ttext 7e00
-#TOOLCHAIN-PREFIX = i386-elf-
 
 all: $(BIN)
 

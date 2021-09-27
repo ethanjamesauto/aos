@@ -1,58 +1,73 @@
-CC = g++
-LDFLAGS = -T os.ld -m i386pe
-ARGS = -fomit-frame-pointer -fno-pie -m32 -ffreestanding -c -g
-TOOLCHAIN-PREFIX = 
+CXX := g++
+ASM := nasm
+LD := ld
+
+CXXFLAGS := -fomit-frame-pointer -fno-pie -m32 -ffreestanding -c -g
+ASMFLAGS := -f elf32 -g
+LDFLAGS := -T os.ld -m i386pe
+DEPFLAGS = -MT $@ -MD -MP -MF $(DEPDIR)/$*.Td
+
+TOOLCHAIN-PREFIX := 
+
+BIN:= os-image.img
+
+SRCS := \
+	src/entry_point.asm src/memory.asm \
+	src/kernel.cpp src/key_manager.cpp src/memory_manager.cpp src/writer.cpp src/parse_command.cpp
+
+BUILDDIR := build
+OBJDIR := $(BUILDDIR)/objects
+DEPDIR := $(BUILDDIR)/dependencies
+
+OBJS := $(patsubst %, $(OBJDIR)/%.o,$(basename $(SRCS)))
+DEPS := $(patsubst %, $(DEPDIR)/%.d,$(basename $(SRCS)))
+
+$(shell mkdir -p $(dir $(OBJS)) >/dev/null)
+$(shell mkdir -p $(dir $(DEPS)) >/dev/null)
+
+COMPILE.asm = $(ASM) $(ASMFLAGS) -o $@
+COMPILE.cc = $(CXX) $(DEPFLAGS) $(CXXFLAGS) -c -o $@
+
+PRECOMPILE =
+POSTCOMPILE = mv -f $(DEPDIR)/$*.Td $(DEPDIR)/$*.d
 
 #for macOS
 #LDFLAGS = -Ttext 7e00
 #TOOLCHAIN-PREFIX = i386-elf-
 
-all: os-image.img
+all: $(BIN)
 
 run: all
-	qemu-system-x86_64 -drive format=raw,file=os-image.img
+	qemu-system-x86_64 -drive format=raw,file=$(BIN)
 
 debug: all
-	qemu-system-x86_64 -s -S -drive format=raw,file=os-image.img
+	qemu-system-x86_64 -s -S -drive format=raw,file=$(BIN)
 
 clean:
-	rm -f *.dump.asm *.o *.bin *.tmp *.img
+	rm -f *.dump.asm *.img
+	rm -r $(BUILDDIR)
 #	del *.dump.asm *.o *.bin *.tmp *.img
 
-os-image.img: boot_sect.bin entry_point.o kernel.o memory.o memory_manager.o writer.o key_manager.o parse_command.o
-	$(TOOLCHAIN-PREFIX)ld $(LDFLAGS) -o os-built.o entry_point.o kernel.o memory.o memory_manager.o writer.o key_manager.o parse_command.o
-	$(TOOLCHAIN-PREFIX)objdump -M intel -d os-built.o > os-built.dump.asm
-	$(TOOLCHAIN-PREFIX)objcopy -O binary os-built.o kernel.bin
-	cat boot_sect.bin kernel.bin > os-image.img
-	dd if=/dev/null of=os-image.img bs=1 count=0 seek=1474560
+$(BIN): $(BUILDDIR)/boot_sect.bin $(OBJS)
+	$(TOOLCHAIN-PREFIX)$(LD) $(LDFLAGS) -o $(BUILDDIR)/os-built.elf $(OBJS)
+	$(TOOLCHAIN-PREFIX)objdump -M intel -d $(BUILDDIR)/os-built.elf > os-built.dump.asm
+	$(TOOLCHAIN-PREFIX)objcopy -O binary $(BUILDDIR)/os-built.elf $(BUILDDIR)/kernel.bin
+	cat $(BUILDDIR)/boot_sect.bin $(BUILDDIR)/kernel.bin > $(BIN)
+	dd if=/dev/null of=$(BIN) bs=1 count=0 seek=1474560
 
-boot_sect.bin: bootloader.asm macros.asm
-	nasm -o boot_sect.bin bootloader.asm
+$(BUILDDIR)/boot_sect.bin: src/bootloader.asm macros.asm
+	nasm -o $(BUILDDIR)/boot_sect.bin src/bootloader.asm 
 
-entry_point.o: entry_point.asm memory_config.asm
-	nasm -g entry_point.asm -f elf32 -o entry_point.o
-#	objdump -M intel -D entry_point.o > entry_point.dump
+$(OBJDIR)/%.o: %.cpp
+$(OBJDIR)/%.o: %.cpp $(DEPDIR)/%.d
+	$(PRECOMPILE)
+	$(COMPILE.cc) $<
+	$(POSTCOMPILE)
 
-memory.o: memory.asm memory_config.asm
-	nasm -g memory.asm -f elf32 -o memory.o
-#	objdump -M intel -D memory.o > memory.dump
+$(OBJDIR)/%.o: %.asm
+	$(COMPILE.asm) $<
 
-memory_manager.o: memory_manager.cpp memory_manager.h
-	$(TOOLCHAIN-PREFIX)$(CC) $(ARGS) memory_manager.cpp -o memory_manager.o
-#	objdump -M intel -D memory_manager.o > memory_manager.dump
+.PRECIOUS: $(DEPDIR)/%.d
+$(DEPDIR)/%.d: ;
 
-kernel.o: kernel.cpp kernel.h writer.h ioport.h memory_manager.h parse_command.h
-	$(TOOLCHAIN-PREFIX)$(CC) $(ARGS) kernel.cpp -o kernel.o
-#	objdump -M intel -D kernel.o > kernel.dump
-
-writer.o: writer.cpp writer.h ioport.h
-	$(TOOLCHAIN-PREFIX)$(CC) $(ARGS) writer.cpp -o writer.o
-#	objdump -M intel -D writer.o > writer.dump
-	
-key_manager.o: key_manager.cpp key_manager.h ioport.h
-	$(TOOLCHAIN-PREFIX)$(CC) $(ARGS) key_manager.cpp -o key_manager.o
-#	objdump -M intel -D key_manager.o > key_manager.dump
-
-parse_command.o: parse_command.cpp parse_command.h writer.h
-	$(TOOLCHAIN-PREFIX)$(CC) $(ARGS) parse_command.cpp -o parse_command.o
-#	objdump -M intel -D parse_command.o > parse_command.dump
+-include $(DEPS)

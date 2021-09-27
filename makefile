@@ -33,7 +33,7 @@ COMPILE.asm = $(ASM) $(ASMFLAGS) -o $@
 COMPILE.cc = $(TOOLCHAIN-PREFIX)$(CXX) $(DEPFLAGS) $(CXXFLAGS) -c -o $@
 
 PRECOMPILE =
-POSTCOMPILE = 
+POSTCOMPILE =
 
 all: $(BIN)
 
@@ -46,7 +46,6 @@ debug: all
 clean:
 	rm -f *.dump.asm *.img
 	rm -r $(BUILDDIR)
-#	del *.dump.asm *.o *.bin *.tmp *.img
 
 $(BIN): $(BUILDDIR)/boot_sect.bin $(OBJS)
 	$(TOOLCHAIN-PREFIX)$(LD) $(LDFLAGS) -o $(BUILDDIR)/os-built.elf $(OBJS)

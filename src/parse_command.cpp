@@ -44,7 +44,7 @@ void print_vbe_info(vbe_info_structure& vbe, Writer& writer) {
     writer << endl;
 }
 
-bool equals(char* a, char* b) {
+bool equals(const char* a, const char* b) {
     for (int i = 0; a[i] == b[i]; i++) {
         if (a[i] == '\0') {
             return true;

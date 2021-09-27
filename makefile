@@ -26,7 +26,7 @@ $(shell mkdir -p $(dir $(OBJS)) >/dev/null)
 $(shell mkdir -p $(dir $(DEPS)) >/dev/null)
 
 COMPILE.asm = $(ASM) $(ASMFLAGS) -o $@
-COMPILE.cc = $(CXX) $(DEPFLAGS) $(CXXFLAGS) -c -o $@
+COMPILE.cc = $(TOOLCHAIN-PREFIX)$(CXX) $(DEPFLAGS) $(CXXFLAGS) -c -o $@
 
 PRECOMPILE =
 POSTCOMPILE = mv -f $(DEPDIR)/$*.Td $(DEPDIR)/$*.d

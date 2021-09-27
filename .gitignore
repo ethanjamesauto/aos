@@ -2,4 +2,5 @@
 *.img
 *.bin
 *.dump.asm
+*.d
 .vscode

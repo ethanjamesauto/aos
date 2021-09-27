@@ -2,8 +2,8 @@ CXX := g++
 ASM := nasm
 LD := ld
 
-CXXFLAGS := -fomit-frame-pointer -fno-pie -m32 -ffreestanding -c -g
-ASMFLAGS := -f elf32 -g
+CXXFLAGS := -fomit-frame-pointer -fno-pie -m32 -ffreestanding -c
+ASMFLAGS := -f elf32
 LDFLAGS := -T os.ld -m i386pe
 DEPFLAGS = -MT $@ -MD -MP -MF $(DEPDIR)/$*.Td
 
@@ -39,9 +39,6 @@ all: $(BIN)
 
 run: all
 	qemu-system-x86_64 -drive format=raw,file=$(BIN)
-
-debug: all
-	qemu-system-x86_64 -s -S -drive format=raw,file=$(BIN)
 
 clean:
 	rm -f *.dump.asm *.img

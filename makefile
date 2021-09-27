@@ -33,7 +33,7 @@ COMPILE.asm = $(ASM) $(ASMFLAGS) -o $@
 COMPILE.cc = $(TOOLCHAIN-PREFIX)$(CXX) $(DEPFLAGS) $(CXXFLAGS) -c -o $@
 
 PRECOMPILE =
-POSTCOMPILE = mv -f $(DEPDIR)/$*.Td $(DEPDIR)/$*.d
+POSTCOMPILE = 
 
 all: $(BIN)
 

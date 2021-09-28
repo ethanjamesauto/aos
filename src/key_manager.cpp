@@ -60,5 +60,9 @@ char KeyManager::getKeyPress() {
 		return 0;
 	}
 	chars_left--;
-	return scancode_table[buffer[buffer_loc++ % BUFFER_SIZE]];
+	char key = buffer[buffer_loc++ % BUFFER_SIZE];
+	if (key < sizeof(scancode_table)) {
+		return scancode_table[key];
+	}
+	return 0;
 }

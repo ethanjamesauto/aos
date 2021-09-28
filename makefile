@@ -38,7 +38,7 @@ POSTCOMPILE =
 all: $(BIN)
 
 run: all
-	qemu-system-x86_64 -drive format=raw,file=$(BIN)
+	qemu-system-i386 -drive format=raw,file=$(BIN)
 
 clean:
 	rm -f *.dump.asm *.img

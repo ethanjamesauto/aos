@@ -49,7 +49,7 @@ clean:
 
 $(BIN): $(BUILDDIR)/boot_sect.bin $(OBJS)
 	$(TOOLCHAIN-PREFIX)$(LD) $(LDFLAGS) -o $(BUILDDIR)/os-built.elf $(OBJS)
-	$(TOOLCHAIN-PREFIX)objdump -M intel -d $(BUILDDIR)/os-built.elf > os-built.dump.asm
+	$(TOOLCHAIN-PREFIX)objdump -M intel -D $(BUILDDIR)/os-built.elf > os-built.dump.asm
 	$(TOOLCHAIN-PREFIX)objcopy -O binary $(BUILDDIR)/os-built.elf $(BUILDDIR)/kernel.bin
 	cat $(BUILDDIR)/boot_sect.bin $(BUILDDIR)/kernel.bin > $(BIN)
 	dd if=/dev/null of=$(BIN) bs=1 count=0 seek=1474560

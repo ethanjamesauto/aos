@@ -15,9 +15,11 @@ TOOLCHAIN-PREFIX :=
 
 BIN:= os-image.img
 
-SRCS := \
+#SRCS := \
 	src/entry_point.asm src/memory.asm \
 	src/kernel.cpp src/key_manager.cpp src/memory_manager.cpp src/writer.cpp src/parse_command.cpp
+
+SRCS := $(wildcard src/*.asm) $(wildcard src/*.cpp)
 
 BUILDDIR := build
 OBJDIR := $(BUILDDIR)/objects
@@ -54,8 +56,8 @@ $(BIN): $(BUILDDIR)/boot_sect.bin $(OBJS)
 	cat $(BUILDDIR)/boot_sect.bin $(BUILDDIR)/kernel.bin > $(BIN)
 	dd if=/dev/null of=$(BIN) bs=1 count=0 seek=1474560
 
-$(BUILDDIR)/boot_sect.bin: src/bootloader.asm macros.asm
-	nasm -o $(BUILDDIR)/boot_sect.bin src/bootloader.asm 
+$(BUILDDIR)/boot_sect.bin: src/boot/bootloader.asm macros.asm
+	nasm -o $(BUILDDIR)/boot_sect.bin src/boot/bootloader.asm 
 
 $(OBJDIR)/%.o: %.cpp
 $(OBJDIR)/%.o: %.cpp $(DEPDIR)/%.d

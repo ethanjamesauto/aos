@@ -10,11 +10,14 @@ class Writer {
     int r;
     int c;
     char color;
-    void offset(int r, int c);
     void fixPos();
     void nextChar();
     void moveCursor(int r, int c);
     void backspace();
+
+    inline constexpr char* offset(int r, int c) {
+        return VIDEO_BUFFER + 2 * ((r)*WIDTH + (c));
+    }
 
    public:
     Writer();

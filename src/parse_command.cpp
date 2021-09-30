@@ -67,6 +67,9 @@ bool parse_command(char* command, Writer& writer) {
     } else if (equals(command, "clear")) {
         writer.clearScreen();
         return true;
+    } else if (equals(command, "poop")) {
+        writer << (int)(1.0 * 361. * 21. / 5.) << endl;
+        return true;
     }
     return false;
 }

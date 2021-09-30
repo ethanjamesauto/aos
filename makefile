@@ -15,9 +15,7 @@ TOOLCHAIN-PREFIX :=
 
 BIN:= os-image.img
 
-SRCS := \
-	src/entry_point.asm src/memory.asm \
-	src/kernel.cpp src/key_manager.cpp src/memory_manager.cpp src/writer.cpp src/parse_command.cpp
+SRCS := $(wildcard src/*.asm) $(wildcard src/*.cpp)
 
 BUILDDIR := build
 OBJDIR := $(BUILDDIR)/objects
@@ -33,7 +31,7 @@ COMPILE.asm = $(ASM) $(ASMFLAGS) -o $@
 COMPILE.cc = $(TOOLCHAIN-PREFIX)$(CXX) $(DEPFLAGS) $(CXXFLAGS) -c -o $@
 
 PRECOMPILE =
-POSTCOMPILE =
+POSTCOMPILE = mv -f $(DEPDIR)/$*.Td $(DEPDIR)/$*.d
 
 all: $(BIN)
 
@@ -46,13 +44,13 @@ clean:
 
 $(BIN): $(BUILDDIR)/boot_sect.bin $(OBJS)
 	$(TOOLCHAIN-PREFIX)$(LD) $(LDFLAGS) -o $(BUILDDIR)/os-built.elf $(OBJS)
-	$(TOOLCHAIN-PREFIX)objdump -M intel -d $(BUILDDIR)/os-built.elf > os-built.dump.asm
+	$(TOOLCHAIN-PREFIX)objdump -M intel -D $(BUILDDIR)/os-built.elf > os-built.dump.asm
 	$(TOOLCHAIN-PREFIX)objcopy -O binary $(BUILDDIR)/os-built.elf $(BUILDDIR)/kernel.bin
 	cat $(BUILDDIR)/boot_sect.bin $(BUILDDIR)/kernel.bin > $(BIN)
 	dd if=/dev/null of=$(BIN) bs=1 count=0 seek=1474560
 
-$(BUILDDIR)/boot_sect.bin: src/bootloader.asm macros.asm
-	nasm -o $(BUILDDIR)/boot_sect.bin src/bootloader.asm 
+$(BUILDDIR)/boot_sect.bin: src/boot/bootloader.asm macros.asm
+	nasm -o $(BUILDDIR)/boot_sect.bin src/boot/bootloader.asm 
 
 $(OBJDIR)/%.o: %.cpp
 $(OBJDIR)/%.o: %.cpp $(DEPDIR)/%.d

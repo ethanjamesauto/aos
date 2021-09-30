@@ -1,6 +1,6 @@
 #include "writer.h"
 #include "ioport.h"
-#define offset(r, c) (VIDEO_BUFFER + 2 * ((r)*WIDTH + (c)))
+
 #define BACKSPACE_LIMIT 2
 
 void Writer::fixPos() {

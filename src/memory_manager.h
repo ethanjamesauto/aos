@@ -1,9 +1,8 @@
 void* alloc(int size);
 
-extern "C" void* alloc_static(int size) asm ("alloc_static");
+extern "C" void* alloc_static(int size) asm("alloc_static");
 
 class MemoryManager {
-
-  public:
+   public:
     MemoryManager(int address, int size);
 };

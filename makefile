@@ -15,10 +15,6 @@ TOOLCHAIN-PREFIX :=
 
 BIN:= os-image.img
 
-#SRCS := \
-	src/entry_point.asm src/memory.asm \
-	src/kernel.cpp src/key_manager.cpp src/memory_manager.cpp src/writer.cpp src/parse_command.cpp
-
 SRCS := $(wildcard src/*.asm) $(wildcard src/*.cpp)
 
 BUILDDIR := build

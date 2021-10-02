@@ -1,10 +1,21 @@
 #include "mandelbrot.h"
 
-#define map(x, in_max, out_min, out_max) (x) * (out_max - out_min) / (in_max) + out_min;
+inline float map(float x, float in_max, float out_min, float out_max) {
+    return x * (out_max - out_min) / (in_max) + out_min;
+}
+
+inline int clamp(int x, int min, int max) {
+    if (x > max) {
+        x = max;
+    } else if (x < min) {
+        x = min;
+    }
+    return x;
+}
 
 float mandelbrot(int xIn, int yIn, int width, int height) {
-    float x0 = map((float)xIn, width, -2., .47);
-    float y0 = map((float)yIn, height, -1.12, 1.12);
+    float x0 = map(xIn, width, -2., .47);
+    float y0 = map(yIn, height, -1.12, 1.12);
     float x = 0;
     float y = 0;
     int maxI = 30;
@@ -14,11 +25,11 @@ float mandelbrot(int xIn, int yIn, int width, int height) {
         y = 2 * x * y + y0;
         x = xtemp;
     }
-    return (float) i / maxI;
+    return (float)i / maxI;
 }
 
 char mandelbrotColor(float f) {
-    int n = (int)(f * 5);
+    int n = clamp(f * 5, 0, 5);
     return (5 - n << 4) + 0xf;
 }
 

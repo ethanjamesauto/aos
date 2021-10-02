@@ -1,4 +1,5 @@
 #include "parse_command.h"
+#include "mandelbrot.h"
 
 struct vbe_info_structure {
     char signature[4];            // must be "VESA" to indicate valid VBE support
@@ -66,6 +67,9 @@ bool parse_command(char* command, Writer& writer) {
         return true;
     } else if (equals(command, "clear")) {
         writer.clearScreen();
+        return true;
+    } else if (equals(command, "mb")) {
+        runMandelbrot(writer, WIDTH, HEIGHT - 1);
         return true;
     } else if (equals(command, "poop")) {
         writer << (int)(1.0 * 361. * 21. / 5.) << endl;

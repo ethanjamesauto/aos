@@ -18,7 +18,7 @@ float mandelbrot(int xIn, int yIn, int width, int height) {
     float y0 = map(yIn, height, -1.12, 1.12);
     float x = 0;
     float y = 0;
-    int maxI = 30;
+    int maxI = 25;
     int i;
     for (i = 0; i < maxI && x * x + y * y <= 4; i++) {
         float xtemp = x * x - y * y + x0;
@@ -28,9 +28,10 @@ float mandelbrot(int xIn, int yIn, int width, int height) {
     return (float)i / maxI;
 }
 
+#define numColors 15
 char mandelbrotColor(float f) {
-    int n = clamp(f * 5, 0, 5);
-    return (5 - n << 4) + 0xf;
+    int n = clamp(f * numColors, 0, numColors);
+    return (numColors - n << 4) + 0xf;
 }
 
 void runMandelbrot(Writer& writer, int width, int height) {

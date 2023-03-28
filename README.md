@@ -1,1 +1,1 @@
-Testing ground for bare-bones programming
+Test operating system for bare-bones programming

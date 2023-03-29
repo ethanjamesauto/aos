@@ -1,1 +1,1 @@
-Test operating system for bare-metal programming
+Simple operating system for bare-metal programming
